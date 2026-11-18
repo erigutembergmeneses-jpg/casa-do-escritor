@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casa do Escritor — Erigutemberg Meneses | Livros, Sonetos e Ghostwriting</title>
+  <meta name="description" content="Advogado, economista e autor com mais de 2.000 sonetos publicados. Livros, música, mentoria literária e ghostwriting. Transforme sua ideia em livro." />
+  <meta name="author" content="Erigutemberg Meneses" />
+  <meta property="og:title" content="Casa do Escritor — Erigutemberg Meneses" />
+  <meta property="og:description" content="Sua ideia merece virar livro. Eu escrevo com você — ou por você." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./og-image.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231A1E2E' stroke='%23C9A227' stroke-width='3'/%3E%3Ctext x='50' y='68' font-family='Georgia' font-size='56' font-weight='bold' fill='%23C9A227' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Work Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    :root{--ink:#1A1E2E;--gold:#C9A227;--cream:#F5F1E6;--cream2:#EDE6D3;--paper:#FFFDF6;--muted:#6B675A}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#F5F1E6;color:#1A1E2E;font-family:"Work Sans",system-ui,sans-serif}
+    .font-serif-display{font-family:"Playfair Display",Georgia,serif}
+    .book-cover{background:linear-gradient(145deg,#2A3048,#1A1E2E 62%,#3B2F14);box-shadow:0 18px 30px rgba(0,0,0,.22), inset 0 0 0 1px rgba(201,162,39,.45)}
+    .book-cover-2{background:linear-gradient(145deg,#C9A227,#8E7014 58%,#1A1E2E)}
+    .book-cover-3{background:linear-gradient(145deg,#5B3A24,#2A1E14 65%,#C9A227)}
+    .texture{background-image:radial-gradient(rgba(201,162,39,.16) 1px,transparent 1px);background-size:22px 22px}
+    .no-scrollbar::-webkit-scrollbar{display:none}
+    .no-scrollbar{scrollbar-width:none}
+    input,select,textarea,button{font-family:inherit}
+    .fade-in{animation:fadeIn .6s ease-out}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" data-presets="react">
+    const { useState, useEffect, useMemo, useRef } = React;
+    const { BookOpen, ShoppingBag, Search, Play, Pause, MapPin, Users, Mail, Phone, Menu, X, Plus, Minus, Trash2, Check, ChevronDown, Music2, Feather, ArrowRight, Clock, Sparkles, Quote, Send, FileText, AudioLines, MessageCircle } = lucide;
+
+    // ================== CONFIGURAÇÃO ==================
+    const WEB3FORMS_KEY = "COLE-SUA-CHAVE-AQUI"; // ← troque pela sua chave em web3forms.com
+    const WA = "5547988911436";
+    const EMAIL = "erigutembergmeneses@gmail.com";
+    const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+    const money = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+    // ================== DADOS ==================
+    const PRODUCTS = [
+      { id:"livro", name:"Livro físico autografado", price:59.90, category:"Livros", tag:"Autografado", desc:"Edição impressa com dedicatória manuscrita e marcador exclusivo.", cover:"SONETOS", coverClass:"book-cover" },
+      { id:"ebook", name:"E-book Sonetos", price:29.90, category:"Digital", tag:"Leitura imediata", desc:"Versão digital para ler no celular, tablet ou leitor eletrônico.", cover:"SONETOS DIGITAIS", coverClass:"book-cover-2" },
+      { id:"box", name:"Box do Escritor", price:129.90, category:"Kits", tag:"Edição completa", desc:"Livro + QR Code com as músicas + caderno de escrita para o seu rascunho.", cover:"BOX DO ESCRITOR", coverClass:"book-cover-3" },
+      { id:"album", name:"Álbum SONETOM digital", price:39.90, category:"Música", tag:"16 faixas", desc:"Poesia que virou rock. O álbum completo para ouvir onde você estiver.", cover:"SONETOM", coverClass:"book-cover-2" },
+      { id:"vestibular", name:"Coleção Sonetos para Vestibular", price:49.90, category:"Educação", tag:"Estudo", desc:"Sonetos comentados, temas recorrentes e exercícios de interpretação.", cover:"PARA VESTIBULAR", coverClass:"book-cover" },
+    ];
+
+    const TRACKS = ["Abertura em Verso","Soneto da Estrada","Maré de Papel","O Tempo que Fica","Carta sem Remetente","Pedra e Palavra","Amor em Quatorze Versos","A Cidade que Escreve","Economia do Afeto","Lei do Coração","Saudade em Ré Maior","Fé que Atravessa","O Advogado e o Poeta","Noite de Tinta","Verso Final","Bis: Soneto Eterno"];
+
+    const SONNETS = [
+      { title:"Soneto do Primeiro Verso", theme:"Amor", excerpt:"Antes do verso, havia um silêncio inteiro; depois, teu nome fez do papel caminho.", full:"Antes do verso, havia um silêncio inteiro; depois, teu nome fez do papel caminho. O amor chegou sem pedir roteiro e transformou a espera em pergaminho. Escrevo para guardar o que é passageiro e, ao mesmo tempo, torná-lo vizinho do peito. Que o poema seja o primeiro passo de um amor que aprende a ser destino." },
+      { title:"O Tempo e a Tinta", theme:"Tempo", excerpt:"O tempo escreve em nós sem pedir licença, e cada ruga guarda um parágrafo.", full:"O tempo escreve em nós sem pedir licença, e cada ruga guarda um parágrafo. Não há borracha para a experiência, nem pressa que apague o que foi fato. Aprendi a contar minha existência não pelo relógio, mas pelo retrato que a memória faz do instante exato em que o presente virou passado." },
+      { title:"Soneto da Balança", theme:"Direito", excerpt:"A justiça não mora só no processo: mora no olhar de quem ouve o outro.", full:"A justiça não mora só no processo: mora no olhar de quem ouve o outro. A lei é letra, mas também é começo de um pacto que se faz com o tesouro da palavra. Que o direito seja mais que endereço de tribunais: seja a ponte e o porto onde a dignidade encontra seu porto." },
+      { title:"Economia do Afeto", theme:"Economia", excerpt:"Há riquezas que não cabem no balanço: um abraço vale mais que um ativo.", full:"Há riquezas que não cabem no balanço: um abraço vale mais que um ativo. A escassez maior não é do dinheiro, é de tempo, de escuta, de motivo. Se a vida fosse um livro de registro, eu lançaria no campo do vivido cada gesto que não teve preço e, por isso, jamais será esquecido." },
+      { title:"Carta para a Saudade", theme:"Saudade", excerpt:"Saudade é uma casa com a luz acesa, esperando alguém que já partiu.", full:"Saudade é uma casa com a luz acesa, esperando alguém que já partiu. É o cheiro do café sobre a mesa e a cadeira que insiste em existir. Não peço que a ausência se desfaça; peço que a lembrança saiba sorrir. Quem ama não perde: apenas aprende a guardar no peito o que não pode vir." },
+      { title:"Oração em Quatorze Versos", theme:"Fé", excerpt:"Quando a noite pesa mais que o dia, acendo um verso como quem ora.", full:"Quando a noite pesa mais que o dia, acendo um verso como quem ora. A fé não é fuga, é travessia; é a certeza que nasce da demora. Que cada palavra seja uma guia para atravessar a dor sem demora, e que o poema, ao fim, me conduza à paz que a alma tanto procura." },
+      { title:"Amor que Fica", theme:"Amor", excerpt:"Não prometo o infinito em voz alta: prometo o cuidado em cada manhã.", full:"Não prometo o infinito em voz alta: prometo o cuidado em cada manhã. O amor não se mede pela falta, mas pela presença que nos irmana. Que o nosso verso, mesmo sem pauta, saiba cantar a vida mais humana: duas mãos, uma casa, uma porta, e um coração que escolhe e se engana." },
+      { title:"O Relógio do Poeta", theme:"Tempo", excerpt:"O poeta não corre contra o tempo: ele senta e ouve o que o tempo diz.", full:"O poeta não corre contra o tempo: ele senta e ouve o que o tempo diz. Cada hora é um verso em movimento, cada ano, um capítulo feliz. Se o futuro chegar num momento de pressa, eu peço que ele aprenda a ser raiz: ficar, florescer, criar alento e fazer do agora o seu país." },
+      { title:"Defesa do Soneto", theme:"Direito", excerpt:"Defendo o verso como se defende um réu inocente: com provas de alma.", full:"Defendo o verso como se defende um réu inocente: com provas de alma. A poesia, senhores, não ofende: ela absolve o medo, acalma. Que o tribunal do tempo compreenda que a palavra também tem sua calma, e que a verdade, quando éenda, cabe inteira em quatorze versos de palma." },
+      { title:"Moeda de Memória", theme:"Economia", excerpt:"Guardei no cofre do peito um tesouro: as tardes simples que não têm valor.", full:"Guardei no cofre do peito um tesouro: as tardes simples que não têm valor. Nenhum juro paga o riso de ouro, nenhuma bolsa compra o esplendor de um dia comum, sincero e puro. Se a vida é um mercado, eu sou autor de um balanço feito só de amor, onde lucrar é não perder o amor." },
+      { title:"Saudade da Infância", theme:"Saudade", excerpt:"A rua era um livro aberto ao vento, e cada jogo, um capítulo inteiro.", full:"A rua era um livro aberto ao vento, e cada jogo, um capítulo inteiro. O tempo, então, andava mais lento, e o futuro era um brinquedo inteiro. Hoje volto, em verso, ao meu centro, à casa, ao quintal, ao companheiro. Saudade é a infância em movimento, pedindo para morar no presente." },
+      { title:"Fé do Escritor", theme:"Fé", excerpt:"Escrevo como quem acende uma vela: para que a palavra ilumine o escuro.", full:"Escrevo como quem acende uma vela: para que a palavra ilumine o escuro. A fé é a tinta que não se revela até que o verso encontre o seu futuro. Se a dúvida bater na janela, eu abro a porta e mostro o seguro: um poema é uma prece singela que transforma o medo em porto seguro." },
+    ];
+
+    const THEMES = ["Todos","Amor","Tempo","Direito","Economia","Saudade","Fé"];
+    const CATS = ["Todos","Livros","Digital","Kits","Música","Educação"];
+
+    const CATALOG_PRODUCTS = [
+      { name:"Protocolo Eros — Internet Archive", href:"https://archive.org/details/protocolo-eros", label:"Internet Archive", desc:"Álbuns, livros e sonetos musicados — ex: Protocolo Eros" },
+      { name:"Erigutemberg Meneses | Meus livros | JusBrasil", href:"https://erigutemberg.jusbrasil.com.br/livros", label:"JusBrasil", desc:"Artigos jurídicos e livros" },
+      { name:"Publicações e Notícias Jurídicas no Jusbrasil", href:"https://erigutemberg.jusbrasil.com.br/publicacoes", label:"JusBrasil", desc:"Artigos jurídicos e livros" },
+      { name:"Recanto das Letras", href:"https://www.recantodasletras.com.br/autores/erigutembergmeneses", label:"Recanto das Letras", desc:"Mais de 2.000 sonetos publicados" },
+    ];
+
+    // ================== API ==================
+    async function saveRecord(collection, value) {
+      if (WEB3FORMS_KEY === "COLE-SUA-CHAVE-AQUI") {
+        console.warn("Web3Forms não configurado. Configure WEB3FORMS_KEY no início do script.");
+        return { ok: true, demo: true };
+      }
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `[Casa do Escritor] Novo ${collection}`,
+          from_name: "Site Casa do Escritor",
+          ...value,
+        }),
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error("Não foi possível salvar. Tente novamente.");
+      return json;
+    }
+
+    // ================== APP ==================
+    function App() {
+      const [mobile, setMobile] = useState(false);
+      const [cart, setCart] = useState({});
+      const [cat, setCat] = useState("Todos");
+      const [query, setQuery] = useState("");
+      const [theme, setTheme] = useState("Todos");
+      const [expanded, setExpanded] = useState(null);
+      const [faq, setFaq] = useState(0);
+      const [track, setTrack] = useState(0);
+      const [playing, setPlaying] = useState(false);
+      const [progress, setProgress] = useState(0);
+      const [showBudget, setShowBudget] = useState(false);
+      const [showCart, setShowCart] = useState(false);
+      const [checkout, setCheckout] = useState({nome:"",whatsapp:"",email:""});
+      const [budget, setBudget] = useState({instituicao:"",cidade:"",data:"",alunos:"",tipo:"Escola"});
+      const [schedule, setSchedule] = useState({nome:"",whatsapp:"",ideia:"",pacote:"Pacote 1 — Mentoria"});
+      const [contact, setContact] = useState({nome:"",email:"",assunto:"Quero conhecer a Casa do Escritor",mensagem:""});
+      const [errors, setErrors] = useState({});
+      const [busy, setBusy] = useState(false);
+      const [notice, setNotice] = useState("");
+      const [checkoutDone, setCheckoutDone] = useState(false);
+      const [budgetDone, setBudgetDone] = useState(false);
+      const [scheduleDone, setScheduleDone] = useState(false);
+      const [contactDone, setContactDone] = useState(false);
+      const audioRef = useRef(null);
+
+      const cartItems = useMemo(() => PRODUCTS.filter(p => cart[p.id]).map(p => ({...p, qty: cart[p.id]})), [cart]);
+      const total = cartItems.reduce((s,p) => s + p.price * p.qty, 0);
+      const count = cartItems.reduce((s,p) => s + p.qty, 0);
+      const filteredProducts = PRODUCTS.filter(p => cat === "Todos" || p.category === cat);
+      const filteredSonnets = SONNETS.filter(s => (theme === "Todos" || s.theme === theme) && (query.trim() === "" || (s.title + " " + s.excerpt + " " + s.theme).toLowerCase().includes(query.toLowerCase())));
+
+      // Player real
+      useEffect(() => {
+        const a = audioRef.current;
+        if (!a) return;
+        a.src = `./audio/${String(track + 1).padStart(2, "0")}.mp3`;
+        a.load();
+        if (playing) a.play().catch(() => setPlaying(false));
+      }, [track]);
+
+      useEffect(() => {
+        const a = audioRef.current;
+        if (!a) return;
+        if (playing) a.play().catch(() => setPlaying(false));
+        else a.pause();
+      }, [playing]);
+
+      function add(id) { setCart(c => ({...c, [id]: (c[id] || 0) + 1})); setNotice("Item adicionado ao carrinho."); setTimeout(() => setNotice(""), 2200); }
+      function changeQty(id, delta) { setCart(c => { const n = {...c}; const v = (n[id] || 0) + delta; if (v <= 0) delete n[id]; else n[id] = v; return n; }); }
+
+      function validate(obj, fields) {
+        const e = {};
+        fields.forEach(f => { if (!obj[f]?.trim()) e[f] = "Preencha este campo."; });
+        if (obj.email && !/^\S+@\S+\.\S+$/.test(obj.email)) e.email = "Informe um e-mail válido.";
+        if (obj.whatsapp && obj.whatsapp.replace(/\D/g,"").length < 10) e.whatsapp = "Informe um WhatsApp com DDD.";
+        setErrors(e);
+        return Object.keys(e).length === 0;
+      }
+
+      async function submitCheckout() {
+        if (!validate(checkout, ["nome","whatsapp","email"]) || cartItems.length === 0) {
+          if (cartItems.length === 0) setNotice("Adicione pelo menos um item ao carrinho.");
+          return;
+        }
+        setBusy(true); setNotice("");
+        try {
+          await saveRecord("pedidos", {...checkout, itens: cartItems.map(i => `${i.qty}x ${i.name}`).join(" | "), total: money(total), criado_em: new Date().toISOString()});
+          setCheckoutDone(true);
+        } catch(e) { setNotice(e.message || "Erro ao registrar. Use o WhatsApp abaixo."); }
+        setBusy(false);
+      }
+      async function submitBudget() {
+        if (!validate(budget, ["instituicao","cidade","data","alunos"])) return;
+        setBusy(true);
+        try { await saveRecord("orcamentos", {...budget, criado_em: new Date().toISOString()}); setBudgetDone(true); }
+        catch(e) { setNotice(e.message || "Erro ao salvar."); }
+        setBusy(false);
+      }
+      async function submitSchedule() {
+        if (!validate(schedule, ["nome","whatsapp","ideia"])) return;
+        setBusy(true);
+        try { await saveRecord("agendamentos", {...schedule, criado_em: new Date().toISOString()}); setScheduleDone(true); }
+        catch(e) { setNotice(e.message || "Erro ao salvar."); }
+        setBusy(false);
+      }
+      async function submitContact() {
+        if (!validate(contact, ["nome","email","mensagem"])) return;
+        setBusy(true);
+        try { await saveRecord("mensagens", {...contact, criado_em: new Date().toISOString()}); setContactDone(true); setContact({nome:"",email:"",assunto:"Quero conhecer a Casa do Escritor",mensagem:""}); }
+        catch(e) { setNotice(e.message || "Erro ao salvar."); }
+        setBusy(false);
+      }
+
+      const checkoutMsg = `Olá, Erigutemberg! Quero finalizar meu pedido na Casa do Escritor:\n${cartItems.map(i => `• ${i.qty}x ${i.name} — ${money(i.price*i.qty)}`).join("\n")}\nTotal: ${money(total)}\nNome: ${checkout.nome}\nWhatsApp: ${checkout.whatsapp}\nE-mail: ${checkout.email}`;
+      const budgetMsg = `Olá! Sou de ${budget.instituicao}, em ${budget.cidade}. Quero levar a Casa do Escritor para um evento do tipo ${budget.tipo}, em ${budget.data}, para cerca de ${budget.alunos} alunos. Pode enviar um orçamento?`;
+      const scheduleMsg = `Olá, Erigutemberg! Quero agendar minha conversa gratuita de 20 minutos. Meu nome é ${schedule.nome}. Minha ideia de livro: ${schedule.ideia}. Pacote: ${schedule.pacote}.`;
+
+      const field = (label, value, onChange, key, placeholder, type="text") => (
+        React.createElement("label", { className: "block text-left" },
+          React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, label),
+          React.createElement("input", { type, value, onChange: e => onChange(e.target.value), placeholder, className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm outline-none focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/25" }),
+          errors[key] && React.createElement("span", { className: "mt-1 block text-xs font-semibold text-red-700" }, errors[key])
+        )
+      );
+
+      return (
+        React.createElement("div", { style: { minHeight: "100vh", background: "#F5F1E6" }, className: "overflow-x-clip text-[#1A1E2E]" },
+          React.createElement("audio", {
+            ref: audioRef,
+            onTimeUpdate: (e) => { const a = e.currentTarget; if (a.duration) setProgress((a.currentTime/a.duration)*100); },
+            onEnded: () => { setTrack(t => (t+1) % TRACKS.length); setProgress(0); },
+          }),
+
+          // TOP BAR
+          React.createElement("div", { className: "bg-[#C9A227] px-4 py-2 text-center text-sm font-bold text-[#1A1E2E]" },
+            React.createElement("a", { href: "https://www.recantodasletras.com.br/autores/erigutembergmeneses", target: "_blank", rel: "noopener" }, "Recanto das Letras — Mais de 2.000 sonetos publicados →")
+          ),
+
+          // HEADER
+          React.createElement("header", { className: "sticky top-0 z-40 border-b border-[#C9A227]/30 bg-[#1A1E2E] text-[#F5F1E6]" },
+            React.createElement("div", { className: "mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6" },
+              React.createElement("a", { href: "#inicio", className: "flex items-center gap-3" },
+                React.createElement("span", { className: "grid h-10 w-10 place-items-center rounded-full border border-[#C9A227] font-serif-display text-xl text-[#C9A227]" }, "E"),
+                React.createElement("span", { className: "leading-none" },
+                  React.createElement("b", { className: "font-serif-display block text-[17px] sm:text-lg" }, "Casa do Escritor"),
+                  React.createElement("small", { className: "text-[11px] tracking-widest text-[#C9A227]" }, "ERIGUTEMBURG MENESES")
+                )
+              ),
+              React.createElement("nav", { className: "hidden items-center gap-5 text-sm font-medium lg:flex" },
+                ["Início:#inicio","Loja:#loja","Casa do Escritor:#casa","Quero ser Autor:#autor","Acervo:#acervo","Contato:#contato"].map(l => {
+                  const [t, h] = l.split(":");
+                  return React.createElement("a", { key: t, href: h, className: "hover:text-[#C9A227]" }, t);
+                })
+              ),
+              React.createElement("div", { className: "flex items-center gap-2" },
+                React.createElement("button", { onClick: () => setShowCart(true), className: "relative flex items-center gap-2 rounded-full bg-[#C9A227] px-3 py-2 text-sm font-bold text-[#1A1E2E]" },
+                  React.createElement(ShoppingBag, { size: 18 }),
+                  React.createElement("span", { className: "hidden sm:inline" }, "Carrinho"),
+                  count > 0 && React.createElement("span", { className: "absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-white px-1 text-xs" }, count)
+                ),
+                React.createElement("button", { onClick: () => setMobile(!mobile), className: "rounded-full border border-white/20 p-2 lg:hidden" },
+                  mobile ? React.createElement(X, { size: 20 }) : React.createElement(Menu, { size: 20 })
+                )
+              )
+            ),
+            mobile && React.createElement("nav", { className: "grid gap-2 border-t border-white/10 px-4 py-3 text-sm lg:hidden" },
+              ["Início:#inicio","Loja:#loja","Casa do Escritor:#casa","Quero ser Autor:#autor","Acervo:#acervo","Contato:#contato"].map(l => {
+                const [t, h] = l.split(":");
+                return React.createElement("a", { key: t, href: h, onClick: () => setMobile(false) }, t);
+              })
+            )
+          ),
+
+          notice && React.createElement("div", { className: "mx-auto mt-3 max-w-7xl px-4" },
+            React.createElement("div", { className: "rounded-xl bg-[#1A1E2E] px-4 py-3 text-sm font-medium text-[#F5F1E6] shadow-lg" }, "✓ " + notice)
+          ),
+
+          React.createElement("main", null,
+            // HERO
+            React.createElement("section", { id: "inicio", className: "bg-[#1A1E2E] text-[#F5F1E6]" },
+              React.createElement("div", { className: "texture mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-20" },
+                React.createElement("div", null,
+                  React.createElement("p", { className: "inline-flex items-center gap-2 rounded-full border border-[#C9A227]/50 px-3 py-1 text-xs font-bold tracking-widest text-[#C9A227]" },
+                    React.createElement(Feather, { size: 14 }), " ADVOGADO • ECONOMISTA • AUTOR"
+                  ),
+                  React.createElement("h1", { className: "font-serif-display mt-6 text-5xl font-bold leading-none sm:text-6xl" },
+                    "Sua ideia merece virar livro. ",
+                    React.createElement("span", { className: "italic text-[#C9A227]" }, "Eu escrevo com você — ou por você.")
+                  ),
+                  React.createElement("p", { className: "mt-5 max-w-xl text-base leading-relaxed text-[#D8D2C0] sm:text-lg" },
+                    "Erigutemberg Meneses transforma memória, conhecimento e história de vida em livros com alma. Mais de 2.000 sonetos publicados, artigos no Brasil e no exterior e poesia que virou música."
+                  ),
+                  React.createElement("div", { className: "mt-7 flex flex-wrap gap-3" },
+                    React.createElement("a", { href: "#autor", className: "rounded-full bg-[#C9A227] px-6 py-3.5 font-bold text-[#1A1E2E] shadow-lg" }, "Quero ser Autor →"),
+                    React.createElement("a", { href: "#loja", className: "rounded-full border border-[#F5F1E6]/40 px-6 py-3.5 font-bold" }, "Ver livros")
+                  ),
+                  React.createElement("div", { className: "mt-9 grid grid-cols-3 gap-3 sm:gap-5" },
+                    [["2.000+","sonetos publicados"],["16","faixas do álbum SONETOM"],["3","caminhos para publicar"]].map(([n,l]) =>
+                      React.createElement("div", { key: n },
+                        React.createElement("b", { className: "font-serif-display text-2xl text-[#C9A227] sm:text-4xl" }, n),
+                        React.createElement("p", { className: "mt-1 text-xs text-[#C9C4B5] sm:text-sm" }, l)
+                      )
+                    )
+                  )
+                ),
+                // PLAYER
+                React.createElement("article", { className: "overflow-hidden rounded-3xl border border-[#C9A227]/40 bg-[#232838] shadow-2xl" },
+                  React.createElement("div", { className: "flex items-center justify-between bg-[#C9A227] px-5 py-3 text-[#1A1E2E]" },
+                    React.createElement("span", { className: "flex items-center gap-2 text-sm font-black" }, React.createElement(Music2, { size: 18 }), " EM DESTAQUE"),
+                    React.createElement("span", { className: "text-xs font-bold" }, "ÁLBUM SONETOM")
+                  ),
+                  React.createElement("div", { className: "p-5" },
+                    React.createElement("p", { className: "font-serif-display text-3xl font-bold leading-tight" }, "Poesia que", React.createElement("br"), "Virou Rock"),
+                    React.createElement("p", { className: "mt-2 text-sm text-[#C8C2B2]" }, "Ouça a faixa em destaque e explore as 16 faixas do álbum."),
+                    React.createElement("div", { className: "mt-5 flex items-center gap-4" },
+                      React.createElement("button", { onClick: () => setPlaying(!playing), className: "grid h-14 w-14 place-items-center rounded-full bg-[#C9A227] text-[#1A1E2E]" },
+                        playing ? React.createElement(Pause) : React.createElement(Play, { className: "ml-1" })
+                      ),
+                      React.createElement("div", { className: "min-w-0" },
+                        React.createElement("p", { className: "text-xs tracking-widest text-[#C9A227]" }, "TOCANDO AGORA • FAIXA " + (track + 1)),
+                        React.createElement("p", { className: "font-serif-display truncate text-xl font-bold" }, TRACKS[track])
+                      )
+                    ),
+                    React.createElement("div", { className: "mt-4" },
+                      React.createElement("div", { className: "h-2 overflow-hidden rounded-full bg-white/15" },
+                        React.createElement("div", { className: "h-full bg-[#C9A227] transition-all", style: { width: progress + "%" } })
+                      )
+                    ),
+                    React.createElement("div", { className: "mt-4 max-h-56 overflow-y-auto pr-1 no-scrollbar" },
+                      TRACKS.map((t, i) =>
+                        React.createElement("button", { key: t, onClick: () => { setTrack(i); setPlaying(true); setProgress(0); }, className: `flex w-full items-center justify
