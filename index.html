@@ -328,4 +328,422 @@
                     ),
                     React.createElement("div", { className: "mt-4 max-h-56 overflow-y-auto pr-1 no-scrollbar" },
                       TRACKS.map((t, i) =>
-                        React.createElement("button", { key: t, onClick: () => { setTrack(i); setPlaying(true); setProgress(0); }, className: `flex w-full items-center justify
+                        React.createElement("button", { key: t, onClick: () => { setTrack(i); setPlaying(true); setProgress(0); }, className: `flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm ${i === track ? "bg-[#C9A227] font-bold text-[#1A1E2E]" : "hover:bg-white/10"}` },
+                          React.createElement("span", { className: "truncate" }, String(i + 1).padStart(2, "0") + " • " + t),
+                          i === track ? React.createElement(AudioLines, { size: 16 }) : React.createElement(Play, { size: 14 })
+                        )
+                      )
+                    ),
+                    React.createElement("a", { href: "#loja", className: "mt-4 flex items-center justify-center gap-2 rounded-xl bg-[#F5F1E6] py-3 text-sm font-bold text-[#1A1E2E]" },
+                      "Quero o álbum digital • R$ 39,90 ", React.createElement(ArrowRight, { size: 16 })
+                    )
+                  )
+                )
+              )
+            ),
+
+            // ONDE ME ENCONTRAR
+            React.createElement("section", { id: "onde-me-encontrar", className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
+              React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "ONDE ME ENCONTRAR"),
+              React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Fontes verificadas."),
+              React.createElement("p", { className: "mt-3 max-w-2xl text-sm text-[#6B675A] sm:text-base" }, "Os links abaixo são as páginas oficiais e verificadas do autor. Use-os para ler, ouvir e conferir as publicações."),
+              React.createElement("div", { className: "mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" },
+                CATALOG_PRODUCTS.map(p =>
+                  React.createElement("article", { key: p.href, className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
+                    React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, p.label),
+                    React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" },
+                      React.createElement("a", { href: p.href, target: "_blank", rel: "noopener", className: "underline decoration-[#C9A227] underline-offset-4 hover:text-[#A68A1F]" }, p.name)
+                    ),
+                    React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, p.desc),
+                    React.createElement("a", { href: p.href, target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Abrir " + p.label + " →")
+                  )
+                ),
+                React.createElement("article", { className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
+                  React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, "Internet Archive"),
+                  React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" }, "Buscar todas as obras do autor"),
+                  React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Álbuns, livros e sonetos musicados"),
+                  React.createElement("a", { href: "https://archive.org/search?query=creator%3A%22Erigutemberg+Meneses%22", target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Buscar no Internet Archive →")
+                ),
+                React.createElement("article", { className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
+                  React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, "SSRN"),
+                  React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" },
+                    React.createElement("a", { href: "https://dx.doi.org/10.2139/ssrn.5879522", target: "_blank", rel: "noopener", className: "underline decoration-[#C9A227] underline-offset-4" }, "Neurocompatible Justice: An Evidence-Based Institutional Model")
+                  ),
+                  React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Artigo indexado no SSRN, DOI 10.2139/ssrn.5879522"),
+                  React.createElement("a", { href: "https://dx.doi.org/10.2139/ssrn.5879522", target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Abrir artigo no SSRN →")
+                ),
+                React.createElement("article", { className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
+                  React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, "YouTube"),
+                  React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" },
+                    React.createElement("a", { href: "https://www.youtube.com/@ErigutembergMeneses", target: "_blank", rel: "noopener", className: "underline decoration-[#C9A227] underline-offset-4" }, "Canal oficial no YouTube — Sonetos musicados")
+                  ),
+                  React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Assista aos sonetos musicados"),
+                  React.createElement("a", { href: "https://www.youtube.com/@ErigutembergMeneses", target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Abrir canal no YouTube →")
+                )
+              )
+            ),
+
+            // LOJA
+            React.createElement("section", { id: "loja", className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
+              React.createElement("div", { className: "flex flex-wrap items-end justify-between gap-4" },
+                React.createElement("div", null,
+                  React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "LOJA DA CASA"),
+                  React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Leve a poesia", React.createElement("br"), "para casa.")
+                ),
+                React.createElement("p", { className: "max-w-sm text-sm text-[#6B675A]" }, "Escolha, monte seu carrinho e finalize pelo WhatsApp. Sem pagamento online — a conversa é direta com o autor.")
+              ),
+              React.createElement("div", { className: "mt-7 flex flex-wrap gap-2" },
+                CATS.map(c => React.createElement("button", { key: c, onClick: () => setCat(c), className: `rounded-full border px-4 py-2 text-sm font-semibold ${cat === c ? "bg-[#1A1E2E] text-white border-[#1A1E2E]" : "border-[#D9D1BB] bg-white"}` }, c))
+              ),
+              React.createElement("div", { className: "mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" },
+                filteredProducts.map(p =>
+                  React.createElement("article", { key: p.id, className: "overflow-hidden rounded-3xl border border-[#E0D9C6] bg-white shadow-sm" },
+                    React.createElement("div", { className: `relative flex h-48 items-end p-5 ${p.coverClass}` },
+                      React.createElement("span", { className: "absolute right-4 top-4 rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-black text-[#1A1E2E]" }, p.tag),
+                      React.createElement("div", null,
+                        React.createElement("p", { className: "text-[11px] tracking-widest text-[#C9A227]" }, "ERIGUTEMBURG MENESES"),
+                        React.createElement("p", { className: "font-serif-display text-2xl font-bold leading-tight text-white" }, p.cover)
+                      )
+                    ),
+                    React.createElement("div", { className: "p-5" },
+                      React.createElement("p", { className: "text-xs font-bold uppercase tracking-widest text-[#A68A1F]" }, p.category),
+                      React.createElement("h3", { className: "font-serif-display mt-1 text-xl font-bold" }, p.name),
+                      React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, p.desc),
+                      React.createElement("div", { className: "mt-4 flex items-center justify-between" },
+                        React.createElement("b", { className: "font-serif-display text-2xl" }, money(p.price)),
+                        React.createElement("button", { onClick: () => add(p.id), className: "flex items-center gap-2 rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Adicionar ", React.createElement(Plus, { size: 16 }))
+                      )
+                    )
+                  )
+                ),
+                React.createElement("div", { className: "flex flex-col justify-between rounded-3xl bg-[#1A1E2E] p-6 text-[#F5F1E6]" },
+                  React.createElement("div", null,
+                    React.createElement(ShoppingBag, { className: "text-[#C9A227]" }),
+                    React.createElement("h3", { className: "font-serif-display mt-4 text-2xl font-bold" }, "Seu carrinho, do seu jeito"),
+                    React.createElement("p", { className: "mt-2 text-sm text-[#C8C2B2]" }, "Ajuste quantidades, revise o total e finalize com uma mensagem pronta no WhatsApp.")
+                  ),
+                  React.createElement("div", { className: "mt-6 flex items-center justify-between border-t border-white/15 pt-4" },
+                    React.createElement("span", { className: "text-sm" }, count + " itens • ", React.createElement("b", { className: "text-[#C9A227]" }, money(total))),
+                    React.createElement("button", { onClick: () => setShowCart(true), className: "rounded-full bg-[#C9A227] px-4 py-2 text-sm font-bold text-[#1A1E2E]" }, "Ver carrinho")
+                  )
+                )
+              )
+            ),
+
+            // CASA
+            React.createElement("section", { id: "casa", className: "bg-[#EDE6D3] py-14 sm:py-20" },
+              React.createElement("div", { className: "mx-auto max-w-7xl px-4 sm:px-6" },
+                React.createElement("div", { className: "grid gap-8 lg:grid-cols-2" },
+                  React.createElement("div", null,
+                    React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "PROJETO ITINERANTE"),
+                    React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "A Casa do Escritor vai até você."),
+                    React.createElement("p", { className: "mt-4 leading-relaxed text-[#57534A]" }, "Uma experiência literária que monta a casa do autor dentro da sua escola, faculdade ou espaço cultural. O visitante circula, lê, escuta, pergunta e descobre que escrever também pode ser o seu caminho."),
+                    React.createElement("button", { onClick: () => setShowBudget(true), className: "mt-6 rounded-full bg-[#1A1E2E] px-6 py-3.5 font-bold text-white" }, "Leve para sua escola / faculdade →")
+                  ),
+                  React.createElement("div", { className: "grid gap-4 sm:grid-cols-3" },
+                    [{t:"Painel Folhetos",d:"Sonetos impressos para ler, levar e colecionar.",n:"01"},{t:"Painel Livros",d:"Obras, dedicatórias e a história por trás de cada livro.",n:"02"},{t:"Painel QR Codes",d:"Aponte o celular e ouça os sonetos musicados.",n:"03"}].map(x =>
+                      React.createElement("article", { key: x.t, className: "rounded-3xl bg-white p-5 shadow-sm" },
+                        React.createElement(BookOpen, { className: "text-[#C9A227]" }),
+                        React.createElement("p", { className: "font-serif-display mt-5 text-4xl text-[#E2D8BC]" }, x.n),
+                        React.createElement("h3", { className: "font-serif-display text-xl font-bold" }, x.t),
+                        React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, x.d)
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+
+            // AUTOR
+            React.createElement("section", { id: "autor", className: "bg-[#1A1E2E] py-14 text-[#F5F1E6] sm:py-20" },
+              React.createElement("div", { className: "mx-auto max-w-7xl px-4 sm:px-6" },
+                React.createElement("p", { className: "text-center text-xs font-black tracking-widest text-[#C9A227]" }, "QUERO SER AUTOR"),
+                React.createElement("h2", { className: "font-serif-display mx-auto mt-3 max-w-3xl text-center text-4xl font-bold sm:text-5xl" }, "Três caminhos. Um livro com o seu nome."),
+                React.createElement("p", { className: "mx-auto mt-3 max-w-2xl text-center text-[#C8C2B2]" }, "Do primeiro rascunho à obra pronta. Escolha o formato que combina com a sua história."),
+                React.createElement("div", { className: "mt-10 grid gap-5 lg:grid-cols-3" },
+                  [
+                    {n:"Pacote 1",t:"Do Rascunho ao Livro",s:"Mentoria",price:"R$ 2.500 a R$ 5.000",items:["8 encontros individuais","Estrutura completa do livro","Revisão orientada capítulo a capítulo","Plano de escrita semanal","Preparação para publicação"],res:"Manuscrito estruturado e pronto para revisar.",hot:false},
+                    {n:"Pacote 2",t:"Sua História, Meu Texto",s:"Ghostwriting",price:"R$ 8.000 a R$ 25.000",items:["Entrevistas guiadas e escuta profunda","Escrita completa do seu livro","Revisões com você em cada capítulo","Voz, ritmo e verdade da sua história","Acompanhamento até o texto final"],res:"Livro pronto, com a sua história e a sua voz.",hot:true},
+                    {n:"Pacote 3",t:"Livro Institucional",s:"Para marcas e instituições",price:"A partir de R$ 15.000",items:["Pesquisa e entrevistas com a equipe","Narrativa institucional e editorial","Curadoria de fotos e documentos","Projeto editorial completo","Edição pensada para legado"],res:"Obra que registra, posiciona e celebra sua instituição.",hot:false}
+                  ].map(pkg =>
+                    React.createElement("article", { key: pkg.n, className: `relative rounded-3xl p-6 ${pkg.hot ? "bg-[#C9A227] text-[#1A1E2E] shadow-2xl lg:-translate-y-2" : "border border-white/15 bg-[#232838]"}` },
+                      pkg.hot && React.createElement("span", { className: "absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-xs font-black" }, "★ MAIS PROCURADO"),
+                      React.createElement("p", { className: "text-xs font-black tracking-widest" }, pkg.n + " • " + pkg.s.toUpperCase()),
+                      React.createElement("h3", { className: "font-serif-display mt-3 text-2xl font-bold leading-tight" }, pkg.t),
+                      React.createElement("p", { className: "font-serif-display mt-3 text-3xl font-bold" }, pkg.price),
+                      React.createElement("ul", { className: "mt-5 space-y-2.5 text-sm" },
+                        pkg.items.map(i => React.createElement("li", { key: i, className: "flex gap-2" }, React.createElement(Check, { size: 17, className: "mt-0.5 shrink-0" }), " " + i))
+                      ),
+                      React.createElement("p", { className: "mt-5 rounded-xl bg-black/10 p-3 text-sm" }, React.createElement("b", null, "Resultado:"), " " + pkg.res),
+                      React.createElement("a", { href: waLink(`Olá! Tenho interesse no ${pkg.n} — ${pkg.t} (${pkg.price}). Pode me contar os próximos passos?`), target: "_blank", rel: "noopener", className: `mt-5 flex items-center justify-center gap-2 rounded-full py-3 text-sm font-bold ${pkg.hot ? "bg-[#1A1E2E] text-white" : "bg-[#F5F1E6] text-[#1A1E2E]"}` },
+                        React.createElement(MessageCircle, { size: 17 }), " Conversar no WhatsApp"
+                      )
+                    )
+                  )
+                ),
+                // F.A.Q + AGENDAMENTO
+                React.createElement("div", { className: "mt-14 grid gap-8 lg:grid-cols-2" },
+                  React.createElement("div", null,
+                    React.createElement("h3", { className: "font-serif-display text-3xl font-bold" }, "Perguntas frequentes"),
+                    React.createElement("div", { className: "mt-5 space-y-3" },
+                      [
+                        {q:"Preciso já saber escrever bem?",a:"Não. A mentoria e o ghostwriting começam da sua ideia e da sua história. O trabalho é transformar o que você já viveu e sabe em texto com estrutura, ritmo e clareza."},
+                        {q:"Quanto tempo leva para ter o livro pronto?",a:"Depende do pacote e da sua disponibilidade. A mentoria tem 8 encontros. No ghostwriting, o prazo é definido após a entrevista inicial, com cronograma por capítulos."},
+                        {q:"Meu nome aparece como autor no ghostwriting?",a:"Sim. Você é o autor da obra. O trabalho de escrita é feito em parceria, com revisões e aprovações suas em cada etapa."},
+                        {q:"Posso parcelar o investimento?",a:"Sim. As condições são conversadas na conversa gratuita de 20 minutos, conforme o pacote e o escopo do seu livro."}
+                      ].map((f, i) =>
+                        React.createElement("div", { key: f.q, className: "overflow-hidden rounded-2xl border border-white/15" },
+                          React.createElement("button", { onClick: () => setFaq(faq === i ? null : i), className: "flex w-full items-center justify-between px-4 py-4 text-left font-bold" },
+                            f.q,
+                            React.createElement(ChevronDown, { className: `transition ${faq === i ? "rotate-180" : ""}`, size: 18 })
+                          ),
+                          faq === i && React.createElement("p", { className: "px-4 pb-4 text-sm leading-relaxed text-[#C8C2B2]" }, f.a)
+                        )
+                      )
+                    )
+                  ),
+                  React.createElement("div", { className: "rounded-3xl bg-[#F5F1E6] p-6 text-[#1A1E2E] sm:p-7" },
+                    React.createElement("p", { className: "flex items-center gap-2 text-xs font-black tracking-widest text-[#A68A1F]" }, React.createElement(Clock, { size: 15 }), " CONVERSA GRATUITA • 20 MINUTOS"),
+                    React.createElement("h3", { className: "font-serif-display mt-2 text-3xl font-bold" }, "Agende sua conversa"),
+                    React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Conte sua ideia. Saia da conversa com o próximo passo claro."),
+                    scheduleDone ?
+                      React.createElement("div", { className: "mt-5 rounded-2xl bg-emerald-50 p-5" },
+                        React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Pedido de agendamento registrado!"),
+                        React.createElement("p", { className: "mt-2 text-sm" }, "Obrigado, " + schedule.nome + ". Use o botão abaixo para abrir a conversa no WhatsApp."),
+                        React.createElement("a", { href: waLink(scheduleMsg), target: "_blank", rel: "noopener", className: "mt-4 flex justify-center gap-2 rounded-full bg-[#1A1E2E] py-3 text-sm font-bold text-white" }, React.createElement(MessageCircle, { size: 17 }), " Abrir conversa no WhatsApp"),
+                        React.createElement("button", { onClick: () => setScheduleDone(false), className: "mt-2 w-full text-sm font-bold underline" }, "Fazer outro agendamento")
+                      ) :
+                      React.createElement("div", { className: "mt-5 grid gap-4" },
+                        React.createElement("div", { className: "grid gap-4 sm:grid-cols-2" },
+                          field("Seu nome", schedule.nome, v => setSchedule({...schedule, nome: v}), "nome", "Como devo te chamar?"),
+                          field("WhatsApp", schedule.whatsapp, v => setSchedule({...schedule, whatsapp: v}), "whatsapp", "(98) 99999-0000")
+                        ),
+                        React.createElement("label", { className: "block" },
+                          React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, "Qual é a ideia do seu livro?"),
+                          React.createElement("textarea", { value: schedule.ideia, onChange: e => setSchedule({...schedule, ideia: e.target.value}), rows: 3, placeholder: "Conte em poucas linhas...", className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm outline-none focus:border-[#C9A227]" }),
+                          errors.ideia && React.createElement("span", { className: "text-xs font-semibold text-red-700" }, errors.ideia)
+                        ),
+                        React.createElement("button", { disabled: busy, onClick: submitSchedule, className: "rounded-full bg-[#C9A227] py-3.5 font-bold disabled:opacity-60" }, busy ? "Salvando..." : "Quero agendar minha conversa gratuita"),
+                        React.createElement("p", { className: "text-center text-xs text-[#6B675A]" }, "Sem compromisso. Sua mensagem fica registrada para o autor.")
+                      )
+                  )
+                )
+              )
+            ),
+
+            // ACERVO
+            React.createElement("section", { id: "acervo", className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
+              React.createElement("div", { className: "flex flex-wrap items-end justify-between gap-4" },
+                React.createElement("div", null,
+                  React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "ACERVO"),
+                  React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Encontre o soneto", React.createElement("br"), "que te encontra.")
+                ),
+                React.createElement("p", { className: "max-w-sm text-sm text-[#6B675A]" }, "Busque por título, palavra ou tema. Cada soneto é uma porta para uma história.")
+              ),
+              React.createElement("div", { className: "mt-7 flex flex-col gap-3 md:flex-row" },
+                React.createElement("label", { className: "relative flex-1" },
+                  React.createElement(Search, { className: "absolute left-4 top-1/2 -translate-y-1/2 text-[#6B675A]", size: 18 }),
+                  React.createElement("input", { value: query, onChange: e => setQuery(e.target.value), placeholder: "Buscar por título ou palavra... ex.: amor, tempo, saudade", className: "w-full rounded-full border border-[#D9D1BB] bg-white py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[#C9A227]" })
+                ),
+                React.createElement("div", { className: "flex flex-wrap gap-2" },
+                  THEMES.map(t => React.createElement("button", { key: t, onClick: () => setTheme(t), className: `rounded-full px-4 py-2 text-sm font-semibold ${theme === t ? "bg-[#1A1E2E] text-white" : "border border-[#D9D1BB] bg-white"}` }, t))
+                )
+              ),
+              React.createElement("p", { className: "mt-4 text-sm font-semibold text-[#6B675A]" }, filteredSonnets.length + " sonetos encontrados"),
+              React.createElement("div", { className: "mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3" },
+                filteredSonnets.map(s =>
+                  React.createElement("article", { key: s.title, className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6" },
+                    React.createElement(Quote, { className: "text-[#C9A227]" }),
+                    React.createElement("span", { className: "mt-3 w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, s.theme),
+                    React.createElement("h3", { className: "font-serif-display mt-3 text-2xl font-bold leading-tight" }, s.title),
+                    React.createElement("p", { className: "mt-3 flex-1 font-serif-display text-[17px] italic leading-relaxed text-[#57534A]" }, "“" + (expanded === s.title ? s.full : s.excerpt) + "”"),
+                    React.createElement("button", { onClick: () => setExpanded(expanded === s.title ? null : s.title), className: "mt-4 self-start font-bold text-[#1A1E2E] underline decoration-[#C9A227] underline-offset-4" }, expanded === s.title ? "Ler menos ↑" : "Ler mais →")
+                  )
+                )
+              ),
+              filteredSonnets.length === 0 && React.createElement("div", { className: "mt-6 rounded-3xl bg-white p-8 text-center" },
+                React.createElement("p", { className: "font-serif-display text-2xl font-bold" }, "Nenhum soneto com esse termo."),
+                React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Tente “amor”, “tempo”, “fé” ou limpe a busca."),
+                React.createElement("button", { onClick: () => { setQuery(""); setTheme("Todos"); }, className: "mt-4 rounded-full bg-[#1A1E2E] px-5 py-2.5 text-sm font-bold text-white" }, "Limpar busca")
+              )
+            ),
+
+            // CONTATO
+            React.createElement("section", { id: "contato", className: "bg-[#F5F1E6] py-14 sm:py-20" },
+              React.createElement("div", { className: "mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2" },
+                React.createElement("div", null,
+                  React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "CONTATO"),
+                  React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Vamos escrever", React.createElement("br"), "a próxima página?"),
+                  React.createElement("p", { className: "mt-4 leading-relaxed text-[#57534A]" }, "Fale sobre seu livro, seu evento ou sua escola. Resposta direta, com cuidado de autor."),
+                  React.createElement("div", { className: "mt-6 space-y-3" },
+                    React.createElement("a", { href: waLink("Olá, Erigutemberg! Quero falar sobre a Casa do Escritor."), target: "_blank", rel: "noopener", className: "flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm" },
+                      React.createElement(Phone, { className: "text-[#C9A227]" }),
+                      React.createElement("span", null,
+                        React.createElement("b", { className: "block text-sm" }, "WhatsApp"),
+                        React.createElement("span", { className: "text-sm text-[#6B675A]" }, "(47) 98891-1436")
+                      )
+                    ),
+                    React.createElement("a", { href: "mailto:" + EMAIL, className: "flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm" },
+                      React.createElement(Mail, { className: "text-[#C9A227]" }),
+                      React.createElement("span", null,
+                        React.createElement("b", { className: "block text-sm" }, "E-mail"),
+                        React.createElement("span", { className: "text-sm break-all text-[#6B675A]" }, EMAIL)
+                      )
+                    )
+                  ),
+                  React.createElement("div", { className: "mt-6 rounded-3xl bg-[#1A1E2E] p-6 text-white" },
+                    React.createElement(Sparkles, { className: "text-[#C9A227]" }),
+                    React.createElement("p", { className: "font-serif-display mt-3 text-xl italic leading-snug" }, "“Todo livro começa com uma conversa. A sua pode começar agora.”"),
+                    React.createElement("p", { className: "mt-2 text-sm text-[#C8C2B2]" }, "— Erigutemberg Meneses")
+                  )
+                ),
+                React.createElement("div", { className: "rounded-3xl border border-[#E0D9C6] bg-white p-6 sm:p-7" },
+                  React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Envie uma mensagem"),
+                  contactDone ?
+                    React.createElement("div", { className: "mt-5 rounded-2xl bg-emerald-50 p-5" },
+                      React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Mensagem registrada com sucesso!"),
+                      React.createElement("p", { className: "mt-2 text-sm text-emerald-900" }, "Obrigado por escrever. O autor retornará em breve."),
+                      React.createElement("button", { onClick: () => setContactDone(false), className: "mt-3 text-sm font-bold underline" }, "Enviar outra mensagem")
+                    ) :
+                    React.createElement("div", { className: "mt-5 grid gap-4" },
+                      React.createElement("div", { className: "grid gap-4 sm:grid-cols-2" },
+                        field("Nome", contact.nome, v => setContact({...contact, nome: v}), "nome", "Seu nome"),
+                        field("E-mail", contact.email, v => setContact({...contact, email: v}), "email", "voce@email.com", "email")
+                      ),
+                      React.createElement("label", { className: "block" },
+                        React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, "Assunto"),
+                        React.createElement("select", { value: contact.assunto, onChange: e => setContact({...contact, assunto: e.target.value}), className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm" },
+                          React.createElement("option", null, "Quero conhecer a Casa do Escritor"),
+                          React.createElement("option", null, "Quero ser autor"),
+                          React.createElement("option", null, "Quero comprar um livro"),
+                          React.createElement("option", null, "Quero levar para minha escola")
+                        )
+                      ),
+                      React.createElement("label", { className: "block" },
+                        React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, "Mensagem"),
+                        React.createElement("textarea", { value: contact.mensagem, onChange: e => setContact({...contact, mensagem: e.target.value}), rows: 4, placeholder: "Escreva sua mensagem...", className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm outline-none focus:border-[#C9A227]" }),
+                        errors.mensagem && React.createElement("span", { className: "text-xs font-semibold text-red-700" }, errors.mensagem)
+                      ),
+                      React.createElement("button", { disabled: busy, onClick: submitContact, className: "flex items-center justify-center gap-2 rounded-full bg-[#1A1E2E] py-3.5 font-bold text-white disabled:opacity-60" },
+                        React.createElement(Send, { size: 17 }),
+                        busy ? "Salvando..." : "Enviar mensagem"
+                      )
+                    )
+                )
+              )
+            )
+          ),
+
+          // FOOTER
+          React.createElement("footer", { className: "bg-[#1A1E2E] px-4 py-10 text-[#C8C2B2] sm:px-6" },
+            React.createElement("div", { className: "mx-auto max-w-7xl text-center" },
+              React.createElement("p", { className: "font-serif-display text-2xl text-[#F5F1E6]" }, "Casa do Escritor"),
+              React.createElement("p", { className: "mt-1 text-xs tracking-widest text-[#C9A227]" }, "ERIGUTEMBURG MENESES • ADVOGADO • ECONOMISTA • AUTOR"),
+              React.createElement("p", { className: "mx-auto mt-4 max-w-xl text-sm" }, "Sonetos, livros, música e mentoria para quem quer transformar ideia em obra."),
+              React.createElement("div", { className: "mt-5 flex flex-wrap justify-center gap-5 text-sm font-semibold text-white" },
+                React.createElement("a", { href: waLink("Olá!"), target: "_blank", rel: "noopener" }, "WhatsApp: (47) 98891-1436"),
+                React.createElement("a", { href: "mailto:" + EMAIL }, "E-mail: " + EMAIL)
+              ),
+              React.createElement("p", { className: "mt-6 text-xs" }, "© " + new Date().getFullYear() + " Casa do Escritor. Checkout via WhatsApp — sem pagamento online neste site.")
+            )
+          ),
+
+          // CART DRAWER
+          showCart && React.createElement("div", { className: "fixed inset-0 z-50 flex justify-end bg-black/55" },
+            React.createElement("div", { className: "flex h-full w-full max-w-md flex-col bg-[#FFFDF6] shadow-2xl" },
+              React.createElement("div", { className: "flex items-center justify-between border-b px-5 py-4" },
+                React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Seu carrinho"),
+                React.createElement("button", { onClick: () => setShowCart(false), className: "rounded-full bg-[#F5F1E6] p-2" }, React.createElement(X))
+              ),
+              React.createElement("div", { className: "flex-1 overflow-y-auto p-5" },
+                cartItems.length === 0 ?
+                  React.createElement("div", { className: "py-14 text-center" },
+                    React.createElement(ShoppingBag, { className: "mx-auto text-[#C9A227]" }),
+                    React.createElement("p", { className: "mt-3 font-bold" }, "Seu carrinho está vazio"),
+                    React.createElement("p", { className: "mt-1 text-sm text-[#6B675A]" }, "Escolha um livro, o álbum ou o box."),
+                    React.createElement("button", { onClick: () => setShowCart(false), className: "mt-4 rounded-full bg-[#1A1E2E] px-5 py-2.5 text-sm font-bold text-white" }, "Explorar a loja")
+                  ) :
+                  React.createElement("div", { className: "space-y-4" },
+                    cartItems.map(i =>
+                      React.createElement("div", { key: i.id, className: "flex gap-3 rounded-2xl border p-3" },
+                        React.createElement("div", { className: `grid h-20 w-16 shrink-0 place-items-center rounded-xl text-center text-[10px] font-black leading-tight text-white ${i.coverClass}` }, i.cover),
+                        React.createElement("div", { className: "min-w-0 flex-1" },
+                          React.createElement("p", { className: "font-bold leading-tight" }, i.name),
+                          React.createElement("p", { className: "mt-1 text-sm text-[#6B675A]" }, money(i.price)),
+                          React.createElement("div", { className: "mt-2 flex items-center gap-2" },
+                            React.createElement("button", { onClick: () => changeQty(i.id, -1), className: "rounded-full border p-1" }, React.createElement(Minus, { size: 14 })),
+                            React.createElement("b", null, i.qty),
+                            React.createElement("button", { onClick: () => changeQty(i.id, 1), className: "rounded-full border p-1" }, React.createElement(Plus, { size: 14 })),
+                            React.createElement("button", { onClick: () => changeQty(i.id, -i.qty), className: "ml-auto flex gap-1 text-xs font-bold text-red-700" }, React.createElement(Trash2, { size: 15 }), " Remover")
+                          )
+                        ),
+                        React.createElement("b", { className: "shrink-0 text-sm" }, money(i.price * i.qty))
+                      )
+                    )
+                  )
+              ),
+              cartItems.length > 0 && React.createElement("div", { className: "border-t p-5" },
+                React.createElement("div", { className: "flex justify-between text-sm" },
+                  React.createElement("span", null, "Subtotal"),
+                  React.createElement("b", null, money(total))
+                ),
+                React.createElement("p", { className: "mt-1 text-xs text-[#6B675A]" }, "Entrega e condições combinadas pelo WhatsApp."),
+                checkoutDone ?
+                  React.createElement("div", { className: "mt-4 rounded-2xl bg-emerald-50 p-4" },
+                    React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Pedido registrado!"),
+                    React.createElement("p", { className: "mt-1 text-sm" }, "Agora finalize a conversa no WhatsApp."),
+                    React.createElement("a", { href: waLink(checkoutMsg), target: "_blank", rel: "noopener", className: "mt-3 flex justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-black text-[#06281A]" }, React.createElement(MessageCircle), " Finalizar pelo WhatsApp")
+                  ) :
+                  React.createElement("div", { className: "mt-4 grid gap-3" },
+                    field("Nome", checkout.nome, v => setCheckout({...checkout, nome: v}), "nome", "Seu nome completo"),
+                    field("WhatsApp", checkout.whatsapp, v => setCheckout({...checkout, whatsapp: v}), "whatsapp", "(98) 99999-0000"),
+                    field("E-mail", checkout.email, v => setCheckout({...checkout, email: v}), "email", "voce@email.com", "email"),
+                    React.createElement("button", { disabled: busy, onClick: submitCheckout, className: "rounded-full bg-[#1A1E2E] py-3.5 font-bold text-white disabled:opacity-60" }, busy ? "Registrando..." : "Registrar pedido"),
+                    React.createElement("a", { href: waLink(checkoutMsg), target: "_blank", rel: "noopener", className: "flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3.5 font-black text-[#06281A]" }, React.createElement(MessageCircle), " Finalizar pelo WhatsApp")
+                  )
+              )
+            )
+          ),
+
+          // BUDGET MODAL
+          showBudget && React.createElement("div", { className: "fixed inset-0 z-50 grid place-items-center bg-black/60 p-4" },
+            React.createElement("div", { className: "max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl" },
+              React.createElement("div", { className: "flex items-start justify-between" },
+                React.createElement("div", null,
+                  React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "ORÇAMENTO"),
+                  React.createElement("h3", { className: "font-serif-display mt-1 text-3xl font-bold" }, "Leve para sua escola")
+                ),
+                React.createElement("button", { onClick: () => setShowBudget(false), className: "rounded-full bg-[#F5F1E6] p-2" }, React.createElement(X))
+              ),
+              budgetDone ?
+                React.createElement("div", { className: "mt-5 rounded-2xl bg-emerald-50 p-5" },
+                  React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Pedido de orçamento registrado!"),
+                  React.createElement("p", { className: "mt-2 text-sm" }, "Recebemos o pedido de " + budget.instituicao + ". Abra o WhatsApp para enviar os detalhes."),
+                  React.createElement("a", { href: waLink(budgetMsg), target: "_blank", rel: "noopener", className: "mt-4 flex justify-center gap-2 rounded-full bg-[#25D366] py-3 font-black text-[#06281A]" }, React.createElement(MessageCircle), " Enviar pelo WhatsApp"),
+                  React.createElement("button", { onClick: () => { setBudgetDone(false); setShowBudget(false); }, className: "mt-3 w-full text-sm font-bold underline" }, "Fechar")
+                ) :
+                React.createElement("div", { className: "mt-5 grid gap-4" },
+                  field("Nome da instituição", budget.instituicao, v => setBudget({...budget, instituicao: v}), "instituicao", "Escola / faculdade"),
+                  field("Cidade", budget.cidade, v => setBudget({...budget, cidade: v}), "cidade", "Sua cidade"),
+                  React.createElement("div", { className: "grid grid-cols-2 gap-4" },
+                    field("Data desejada", budget.data, v => setBudget({...budget, data: v}), "data", "dd/mm/aaaa"),
+                    field("Nº de alunos", budget.alunos, v => setBudget({...budget, alunos: v}), "alunos", "Ex.: 120")
+                  ),
+                  React.createElement("label", { className: "block" },
+                    React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, "Tipo de evento"),
+                    React.createElement("select", { value: budget.tipo, onChange: e => setBudget({...budget, tipo: e.target.value}), className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm" },
+                      ["Escola","Faculdade","Feira do livro","Evento cultural","Outro"].map(o => React.createElement("option", { key: o }, o))
+                    )
+                  ),
+                  React.createElement("button", { disabled: busy, onClick: submitBudget, className: "rounded-full bg-[#C9A227] py-3.5 font-bold disabled:opacity-60" }, busy ? "Salvando..." : "Solicitar orçamento")
+                )
+            )
+          )
+        )
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+  </script>
+</body>
+</html>
