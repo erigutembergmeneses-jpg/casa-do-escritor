@@ -30,6 +30,8 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- ✅ LUCIDE ICONS — OBRIGATÓRIO para os ícones aparecerem -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root{--ink:#1A1E2E;--gold:#C9A227;--cream:#F5F1E6;--cream2:#EDE6D3;--paper:#FFFDF6;--muted:#6B675A}
     html{scroll-behavior:smooth}
@@ -53,7 +55,8 @@
     const { BookOpen, ShoppingBag, Search, Play, Pause, MapPin, Users, Mail, Phone, Menu, X, Plus, Minus, Trash2, Check, ChevronDown, Music2, Feather, ArrowRight, Clock, Sparkles, Quote, Send, FileText, AudioLines, MessageCircle } = lucide;
 
     // ================== CONFIGURAÇÃO ==================
-    const WEB3FORMS_KEY = "COLE-SUA-CHAVE-AQUI"; // ← troque pela sua chave em web3forms.com
+    // ⚠️ SUBSTITUA ABAIXO PELA SUA CHAVE DO WEB3FORMS (https://web3forms.com)
+    const WEB3FORMS_KEY = "COLE-SUA-CHAVE-AQUI";
     const WA = "5547988911436";
     const EMAIL = "erigutembergmeneses@gmail.com";
     const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
