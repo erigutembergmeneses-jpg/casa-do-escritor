@@ -322,7 +322,7 @@
                       ),
                       React.createElement("div", { className: "min-w-0" },
                         React.createElement("p", { className: "text-xs tracking-widest text-[#C9A227]" }, "FAIXA " + (track + 1)),
-                        React.createElement("p", { className: "font-serif-display truncate text-xl font-bold" }, TRACKS[track])
+                        React.createElement("p", { className: "font-serif-display truncate text-xl font-bold" }, TRACKS[track].name)
                       )
                     ),
                     React.createElement("div", { className: "mt-4" },
@@ -331,13 +331,12 @@
                       )
                     ),
                     React.createElement("div", { className: "mt-4 max-h-56 overflow-y-auto pr-1 no-scrollbar" },
-                      TRACKS.map((t, i) =>
-                        React.createElement("button", { key: t, onClick: () => { setTrack(i); setProgress(0); }, className: `flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm ${i === track ? "bg-[#C9A227] font-bold text-[#1A1E2E]" : "hover:bg-white/10"}` },
-                          React.createElement("span", { className: "truncate" }, String(i + 1).padStart(2, "0") + " • " + t),
-                          i === track ? React.createElement(AudioLines, { size: 16 }) : React.createElement(Play, { size: 14 })
-                        )
-                      )
-                    ),
+                     TRACKS.map((t, i) =>
+  React.createElement("button", { key: t.file, onClick: () => { setTrack(i); setProgress(0); }, className: `...` },
+    React.createElement("span", { className: "truncate" }, String(i + 1).padStart(2, "0") + " • " + t.name),
+    ...
+  )
+)
                     React.createElement("a", { href: "#loja", className: "mt-4 flex items-center justify-center gap-2 rounded-xl bg-[#F5F1E6] py-3 text-sm font-bold text-[#1A1E2E]" },
                       "Quero o álbum digital • R$ 39,90 ", React.createElement(ArrowRight, { size: 16 })
                     )
