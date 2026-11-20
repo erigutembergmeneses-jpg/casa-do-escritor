@@ -110,12 +110,117 @@
 
     // ================== DADOS ==================
     const PRODUCTS = [
-      { id:"livro", name:"Livro físico autografado", price:59.90, category:"Livros", tag:"Autografado", desc:"Edição impressa com dedicatória manuscrita e marcador exclusivo.", cover:"SONETOS", coverClass:"book-cover" },
-      { id:"ebook", name:"E-book Sonetos", price:29.90, category:"Digital", tag:"Leitura imediata", desc:"Versão digital para ler no celular, tablet ou leitor eletrônico.", cover:"SONETOS DIGITAIS", coverClass:"book-cover-2" },
-      { id:"box", name:"Box do Escritor", price:129.90, category:"Kits", tag:"Edição completa", desc:"Livro + QR Code com as músicas + caderno de escrita.", cover:"BOX DO ESCRITOR", coverClass:"book-cover-3" },
-      { id:"album", name:"Álbum SONETOM digital", price:39.90, category:"Música", tag:"6 faixas", desc:"Poesia que virou rock. O álbum completo.", cover:"SONETOM", coverClass:"book-cover-2" },
-      { id:"vestibular", name:"Coleção Sonetos para Vestibular", price:49.90, category:"Educação", tag:"Estudo", desc:"Sonetos comentados e exercícios de interpretação.", cover:"PARA VESTIBULAR", coverClass:"book-cover" },
-    ];
+  {
+    id: "virgilio-varzea",
+    name: "Virgílio Várzea",
+    price: 56.49,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Obra publicada pelo Clube de Autores. Preço para versão impressa: R$ 56,49. eBook: R$ 24,57.",
+    cover: "VIRGÍLIO VÁRZEA",
+    coverClass: "book-cover",
+    link: "https://clubedeautores.com.br/livro/virgilio-varzea"
+  },
+  {
+    id: "arquiteturas-duvida",
+    name: "Arquiteturas da Dúvida",
+    price: 93.18,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Como redesenhar o sistema penal contra os vieses da mente humana. Preço impresso: R$ 93,18. eBook: R$ 43,09.",
+    cover: "ARQUITETURAS DA DÚVIDA",
+    coverClass: "book-cover-2",
+    link: "https://clubedeautores.com.br/livro/arquiteturas-da-duvida"
+  },
+  {
+    id: "portas-solidao",
+    name: "Portas da Solidão",
+    price: 46.35,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Uma obra que mergulha na solidão humana. Preço impresso: R$ 46,35. eBook: R$ 24,57.",
+    cover: "PORTAS DA SOLIDÃO",
+    coverClass: "book-cover-3",
+    link: "https://clubedeautores.com.br/livro/portas-da-solidao"
+  },
+  {
+    id: "muitas-almas",
+    name: "MUITAS ALMAS EM NINGUÉM",
+    price: 49.72,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Uma obra que explora a multiplicidade do ser. Preço impresso: R$ 49,72. eBook: R$ 24,57.",
+    cover: "MUITAS ALMAS EM NINGUÉM",
+    coverClass: "book-cover",
+    link: "https://clubedeautores.com.br/livro/muitas-almas-em-ninguem"
+  },
+  {
+    id: "protocolo-eros",
+    name: "Protocolo Eros",
+    price: 115.32,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Uma incursão pela prosa e pela poesia. Preço impresso: R$ 115,32. eBook: R$ 49,27.",
+    cover: "PROTOCOLO EROS",
+    coverClass: "book-cover-2",
+    link: "https://clubedeautores.com.br/livro/protocolo-eros"
+  },
+  {
+    id: "no-do-poco-seco",
+    name: "O nó do poço seco",
+    price: 93.65,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Romance histórico. Preço impresso: R$ 93,65. eBook: R$ 24,57.",
+    cover: "O NÓ DO POÇO SECO",
+    coverClass: "book-cover-3",
+    link: "https://clubedeautores.com.br/livro/o-no-do-poco-seco"
+  },
+  {
+    id: "aos-pes-femininos",
+    name: "Aos Pés Femininos",
+    price: 73.09,
+    category: "Música",
+    tag: "Livro-Álbum",
+    desc: "Doze sonetos em dez idiomas, musicados por inteligência artificial. Preço impresso: R$ 73,09. eBook: R$ 24,57.",
+    cover: "AOS PÉS FEMININOS",
+    coverClass: "book-cover",
+    link: "https://clubedeautores.com.br/livro/aos-pes-femininos"
+  },
+  {
+    id: "neurodireito",
+    name: "NEURODIREITO",
+    price: 51.19,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Uma obra pioneira sobre a intersecção entre neurociência e direito. Preço impresso: R$ 51,19. eBook: R$ 24,57.",
+    cover: "NEURODIREITO",
+    coverClass: "book-cover-2",
+    link: "https://clubedeautores.com.br/livro/neurodireito"
+  },
+  {
+    id: "padre-verdeixa",
+    name: "PADRE VERDEIXA",
+    price: 53.34,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Uma narrativa envolvente. Preço impresso: R$ 53,34. eBook: R$ 24,57.",
+    cover: "PADRE VERDEIXA",
+    coverClass: "book-cover-3",
+    link: "https://clubedeautores.com.br/livro/padre-verdeixa"
+  },
+  {
+    id: "rastreando-rastreadores",
+    name: "Rastreando os rastreadores",
+    price: 93.24,
+    category: "Livros",
+    tag: "Clube de Autores",
+    desc: "Uma investigação profunda. Preço impresso: R$ 93,24. eBook: R$ 43,09.",
+    cover: "RASTREANDO OS RASTREADORES",
+    coverClass: "book-cover",
+    link: "https://clubedeautores.com.br/livro/rastreando-os-rastreadores"
+  }
+];
 
     // ✅ SEUS MP3 REAIS — nomes idênticos aos arquivos em /audio/
     const TRACKS = [
