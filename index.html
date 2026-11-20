@@ -642,7 +642,124 @@
                 )
               )
             ),
+// OFICINA DE SONETO
+React.createElement("section", { id: "oficina", className: "bg-[#EDE6D3] py-14 sm:py-20" },
+  React.createElement("div", { className: "mx-auto max-w-5xl px-4 sm:px-6" },
+    React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "OFICINA DE SONETO"),
+    React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "O método de Machado de Assis", React.createElement("br"), "para fazer um soneto."),
+    React.createElement("p", { className: "mt-4 max-w-3xl leading-relaxed text-[#57534A]" },
+      "No capítulo LV de Dom Casmurro, Bentinho conta como tentou escrever um soneto. O método dele é simples e genial: partir de dois versos já prontos — o primeiro e o último — e preencher o meio. É o exercício que a Casa do Escritor propõe a você agora."
+    ),
 
+    // CARD DO MÉTODO
+    React.createElement("div", { className: "mt-8 grid gap-5 md:grid-cols-3" },
+      [
+        { n: "01", t: "A centelha", d: "Escolha o primeiro verso. Ele deve ter a medida certa (decassílabo) e conter uma imagem forte." },
+        { n: "02", t: "A chave de ouro", d: "Forje o último verso. Ele resume e conclui a ideia com força — é o fecho que dá sentido ao poema." },
+        { n: "03", t: "O preenchimento", d: "Ligue os dois polos com os 12 versos centrais, mantendo métrica, rimas e coerência de ideia." }
+      ].map(x =>
+        React.createElement("article", { key: x.n, className: "rounded-3xl bg-white p-5 shadow-sm" },
+          React.createElement("p", { className: "font-serif-display text-4xl text-[#E2D8BC]" }, x.n),
+          React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold" }, x.t),
+          React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, x.d)
+        )
+      )
+    ),
+
+    // O DESAFIO + EDITOR
+    React.createElement("div", { className: "mt-10 grid gap-6 lg:grid-cols-2" },
+      // COLUNA ESQUERDA — instruções e versos fixos
+      React.createElement("div", { className: "rounded-3xl bg-[#1A1E2E] p-6 text-[#F5F1E6] sm:p-8" },
+        React.createElement("p", { className: "text-xs font-black tracking-widest text-[#C9A227]" }, "O DESAFIO"),
+        React.createElement("h3", { className: "font-serif-display mt-2 text-3xl font-bold" }, "Complete o soneto"),
+        React.createElement("p", { className: "mt-3 text-sm leading-relaxed text-[#C8C2B2]" },
+          "Abaixo, os versos 1 e 14 já estão prontos. Sua tarefa é escrever os 12 versos centrais, respeitando a métrica decassílaba e criando as rimas que ligam a flor à batalha."
+        ),
+        React.createElement("div", { className: "mt-6 space-y-4" },
+          React.createElement("div", null,
+            React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#C9A227]" }, "VERSO 1 — ABERTURA (fixo)"),
+            React.createElement("p", { className: "font-serif-display mt-1 text-lg italic" }, "“Oh! flor do céu! oh! flor cândida e pura!”")
+          ),
+          React.createElement("div", null,
+            React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#C9A227]" }, "VERSO 14 — CHAVE DE OURO (fixo)"),
+            React.createElement("p", { className: "font-serif-display mt-1 text-lg italic" }, "“Perde-se a vida, ganha-se a batalha!”")
+          )
+        ),
+        React.createElement("div", { className: "mt-6 rounded-2xl bg-white/5 p-4" },
+          React.createElement("p", { className: "text-xs font-bold text-[#C9A227]" }, "ESQUEMA DE RIMAS SUGERIDO"),
+          React.createElement("p", { className: "mt-1 text-sm text-[#C8C2B2]" },
+            "Quadra 1: A B B A • Quadra 2: C D D C • Terceto 1: E F E • Terceto 2: F G B"
+          )
+        )
+      ),
+
+      // COLUNA DIREITA — editor dos 14 versos
+      React.createElement("div", { className: "rounded-3xl bg-white p-6 shadow-sm sm:p-8" },
+        React.createElement("div", { className: "flex items-center justify-between" },
+          React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Seu soneto"),
+          React.createElement("span", { className: "rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" },
+            (sonnetLines.filter(Boolean).length) + "/14 versos"
+          )
+        ),
+        React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Preencha os versos centrais. Os versos 1 e 14 já vêm prontos."),
+        React.createElement("div", { className: "mt-4 grid gap-2" },
+          Array.from({ length: 14 }).map((_, i) => {
+            const isFixed = (i === 0 || i === 13);
+            return React.createElement("label", { key: i, className: "block" },
+              React.createElement("span", { className: "text-[10px] font-bold uppercase tracking-widest text-[#6B675A]" },
+                "Verso " + (i + 1) + (isFixed ? " (fixo)" : "")
+              ),
+              React.createElement("input", {
+                type: "text",
+                value: sonnetLines[i] || "",
+                readOnly: isFixed,
+                onChange: (e) => {
+                  const next = [...sonnetLines];
+                  next[i] = e.target.value;
+                  setSonnetLines(next);
+                },
+                placeholder: isFixed ? "" : "Escreva o verso decassílabo...",
+                className: "mt-1 w-full rounded-xl border px-3 py-2 text-sm " + (isFixed ? "border-[#C9A227] bg-[#F5F1E6] font-serif-display italic" : "border-[#D9D1BB] bg-white focus:border-[#C9A227]")
+              })
+            );
+          })
+        ),
+        React.createElement("div", { className: "mt-5 flex flex-wrap gap-2" },
+          React.createElement("button", {
+            onClick: () => setShowSonnetPreview(!showSonnetPreview),
+            className: "rounded-full bg-[#1A1E2E] px-5 py-2.5 text-sm font-bold text-white"
+          }, showSonnetPreview ? "Ocultar prévia" : "Ver meu soneto"),
+          React.createElement("button", {
+            onClick: () => {
+              const filled = sonnetLines.filter(Boolean).length;
+              const msg = "Olá, Erigutemberg! Completei o desafio da Oficina de Soneto:\n\n" + sonnetLines.map((l, i) => (i + 1) + ". " + (l || "____________________")).join("\n");
+              window.open(waLink(msg), "_blank");
+            },
+            className: "flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-black text-[#06281A]"
+          }, React.createElement(MessageCircle, { size: 16 }), " Enviar para o autor"),
+          React.createElement("button", {
+            onClick: () => {
+              const empty = Array(14).fill("");
+              empty[0] = "Oh! flor do céu! oh! flor cândida e pura!";
+              empty[13] = "Perde-se a vida, ganha-se a batalha!";
+              setSonnetLines(empty);
+              setShowSonnetPreview(false);
+            },
+            className: "rounded-full border border-[#D9D1BB] px-5 py-2.5 text-sm font-bold"
+          }, "Limpar")
+        ),
+        showSonnetPreview && React.createElement("div", { className: "mt-5 rounded-2xl bg-[#FFFDF6] p-5" },
+          React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#A68A1F]" }, "PRÉVIA DO SEU SONETO"),
+          React.createElement("div", { className: "mt-3 space-y-1 font-serif-display text-[15px] italic leading-relaxed text-[#57534A]" },
+            sonnetLines.map((l, i) =>
+              React.createElement("p", { key: i }, (i + 1) + ". " + (l || "____________________"))
+            )
+          )
+        )
+      )
+    )
+  )
+),
             // ACERVO
             React.createElement("section", { id: "acervo", className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
               React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "ACERVO"),
