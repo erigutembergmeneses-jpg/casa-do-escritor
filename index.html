@@ -767,6 +767,109 @@ React.createElement("section", { id: "oficina", className: "bg-[#EDE6D3] py-14 s
     )
   )
 ),
+                              // OFICINA DE ROMANCE
+React.createElement("section", { id: "oficina-romance", className: "bg-[#EDE6D3] py-14 sm:py-20" },
+  React.createElement("div", { className: "mx-auto max-w-5xl px-4 sm:px-6" },
+    React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "OFICINA DE ROMANCE"),
+    React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "O método de Machado de Assis", React.createElement("br"), "para escrever um romance."),
+    React.createElement("p", { className: "mt-4 max-w-3xl leading-relaxed text-[#57534A]" },
+      "Em Dom Casmurro, Machado não conta apenas uma história: ele constrói uma armadilha narrativa. O leitor nunca sabe se Capitu traiu ou não, porque o narrador é o próprio réu. A seguir, os 5 passos que tornam essa engrenagem possível — e um exercício para você aplicar ao seu próprio romance."
+    ),
+
+    // 5 PASSOS
+    React.createElement("div", { className: "mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-5" },
+      [
+        { n: "01", t: "Narrador não confiável", d: "Defina o interesse oculto do narrador. O que ele ganha ao contar a história? O que ele esconde de si mesmo?" },
+        { n: "02", t: "Metáfora central", d: "Escolha uma imagem física ou ação concreta que simbolize o conflito do livro. Em Dom Casmurro, é a casa e o ato de 'atar as pontas'." },
+        { n: "03", t: "Fragmentar a linearidade", d: "Siga o fluxo da memória, não a cronologia. Permita digressões, idas e voltas, comentários sobre o próprio ato de escrever." },
+        { n: "04", t: "Lacunas e pistas falsas", d: "Deixe ambiguidades deliberadas. O que é fato? O que é interpretação do narrador? A verdade não está no texto — está na suspeita." },
+        { n: "05", t: "Intertextualidade como espelho", d: "Escolha uma obra ou arquétipo anterior que dialogue com a sua história. Use-o para dar profundidade e ironia." }
+      ].map(x =>
+        React.createElement("article", { key: x.n, className: "rounded-3xl bg-white p-5 shadow-sm" },
+          React.createElement("p", { className: "font-serif-display text-4xl text-[#E2D8BC]" }, x.n),
+          React.createElement("h3", { className: "font-serif-display mt-3 text-lg font-bold leading-tight" }, x.t),
+          React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, x.d)
+        )
+      )
+    ),
+
+    // EXERCÍCIO INTERATIVO
+    React.createElement("div", { className: "mt-10 grid gap-6 lg:grid-cols-2" },
+      // COLUNA ESQUERDA — instruções
+      React.createElement("div", { className: "rounded-3xl bg-[#1A1E2E] p-6 text-[#F5F1E6] sm:p-8" },
+        React.createElement("p", { className: "text-xs font-black tracking-widest text-[#C9A227]" }, "O DESAFIO"),
+        React.createElement("h3", { className: "font-serif-display mt-2 text-3xl font-bold" }, "A espinha dorsal do seu romance"),
+        React.createElement("p", { className: "mt-3 text-sm leading-relaxed text-[#C8C2B2]" },
+          "Antes de escrever a primeira página, responda às 5 perguntas abaixo. Elas formam o esqueleto do seu romance — o que Machado fez antes de escrever Dom Casmurro."
+        ),
+        React.createElement("div", { className: "mt-6 rounded-2xl bg-white/5 p-4" },
+          React.createElement("p", { className: "text-xs font-bold text-[#C9A227]" }, "EXEMPLO (DOM CASMURRO)"),
+          React.createElement("ul", { className: "mt-2 space-y-1 text-sm text-[#C8C2B2]" },
+            React.createElement("li", null, React.createElement("b", null, "Narrador: "), "Bento Santiago, que quer se absolver do próprio ciúme."),
+            React.createElement("li", null, React.createElement("b", null, "Metáfora: "), "A casa replicada da infância e o ato de 'atar as pontas'."),
+            React.createElement("li", null, React.createElement("b", null, "Fragmentação: "), "Memória não linear, digressões, capítulos curtos."),
+            React.createElement("li", null, React.createElement("b", null, "Lacuna: "), "Capitu traiu ou não? Nunca resolvido."),
+            React.createElement("li", null, React.createElement("b", null, "Espelho: "), "Otelo, de Shakespeare — ciúme e manipulação.")
+          )
+        ),
+        React.createElement("button", {
+          onClick: () => {
+            const msg = "Olá, Erigutemberg! Preenchi a espinha dorsal do meu romance na Oficina de Romance:\n\n" +
+              "1. Narrador: " + (novelAnswers.narrator || "—") + "\n" +
+              "2. Metáfora central: " + (novelAnswers.metaphor || "—") + "\n" +
+              "3. Fragmentação: " + (novelAnswers.fragmentation || "—") + "\n" +
+              "4. Lacuna: " + (novelAnswers.gap || "—") + "\n" +
+              "5. Espelho: " + (novelAnswers.mirror || "—");
+            window.open(waLink(msg), "_blank");
+          },
+          className: "mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-black text-[#06281A]"
+        }, React.createElement(MessageCircle, { size: 16 }), " Enviar para o autor")
+      ),
+
+      // COLUNA DIREITA — formulário
+      React.createElement("div", { className: "rounded-3xl bg-white p-6 shadow-sm sm:p-8" },
+        React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Meu romance"),
+        React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Responda com uma frase curta cada. Você pode editar depois."),
+        React.createElement("div", { className: "mt-4 grid gap-4" },
+          // 5 campos
+          [
+            { k: "narrator", label: "1. Narrador — qual é o interesse oculto dele?", ph: "Ex.: Quer se absolver de uma culpa antiga..." },
+            { k: "metaphor", label: "2. Metáfora central — que imagem física simboliza o conflito?", ph: "Ex.: Uma casa reconstruída, um rio que seca..." },
+            { k: "fragmentation", label: "3. Fragmentação — como a memória vai embaralhar a cronologia?", ph: "Ex.: Capítulos curtos alternando presente e infância..." },
+            { k: "gap", label: "4. Lacuna — qual é a dúvida que nunca será resolvida?", ph: "Ex.: O filho é ou não do marido?" },
+            { k: "mirror", label: "5. Espelho — que obra ou arquétipo dialoga com sua história?", ph: "Ex.: Otelo, Édipo, Hamlet..." }
+          ].map(f =>
+            React.createElement("label", { key: f.k, className: "block" },
+              React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, f.label),
+              React.createElement("textarea", {
+                rows: 2,
+                value: novelAnswers[f.k] || "",
+                onChange: (e) => setNovelAnswers({ ...novelAnswers, [f.k]: e.target.value }),
+                placeholder: f.ph,
+                className: "mt-1 w-full rounded-xl border border-[#D9D1BB] bg-white px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
+              })
+            )
+          ),
+          // Prévia da "sinopse"
+          React.createElement("div", { className: "mt-2 rounded-2xl bg-[#F5F1E6] p-4" },
+            React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#A68A1F]" }, "PRÉVIA DA ESPINHA DORSAL"),
+            React.createElement("p", { className: "mt-2 font-serif-display text-[15px] italic leading-relaxed text-[#57534A]" },
+              (novelAnswers.narrator || "Um narrador ainda sem nome") + " conta a história de " +
+              (novelAnswers.metaphor ? "um conflito simbolizado por " + novelAnswers.metaphor.toLowerCase() : "um conflito ainda sem metáfora") +
+              ". A narrativa se fragmenta quando " + (novelAnswers.fragmentation ? novelAnswers.fragmentation.toLowerCase() : "a memória embaralha o tempo") +
+              ". No centro, uma dúvida nunca resolvida: " + (novelAnswers.gap ? novelAnswers.gap.toLowerCase() : "o que realmente aconteceu?") +
+              ". Tudo isso ecoa " + (novelAnswers.mirror || "algum arquétipo clássico") + "."
+            )
+          ),
+          React.createElement("button", {
+            onClick: () => setNovelAnswers({ narrator: "", metaphor: "", fragmentation: "", gap: "", mirror: "" }),
+            className: "rounded-full border border-[#D9D1BB] px-5 py-2.5 text-sm font-bold"
+          }, "Limpar")
+        )
+      )
+    )
+  )
+),
             // ACERVO
             React.createElement("section", { id: "acervo", className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
               React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "ACERVO"),
