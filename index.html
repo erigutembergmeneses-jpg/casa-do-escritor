@@ -1,1044 +1,449 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casa do Escritor — Erigutemberg Meneses</title>
-  <meta name="description" content="Advogado, economista e autor com mais de 2.000 sonetos publicados. Livros, música, mentoria literária e ghostwriting." />
-  <meta property="og:title" content="Casa do Escritor — Erigutemberg Meneses" />
-  <meta property="og:description" content="Sua ideia merece virar livro. Eu escrevo com você — ou por você." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231A1E2E' stroke='%23C9A227' stroke-width='3'/%3E%3Ctext x='50' y='68' font-family='Georgia' font-size='56' font-weight='bold' fill='%23C9A227' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17212b">
+  <title>Casa do Escritor | Erigutemberg Meneses</title>
+  <meta name="description" content="Mentoria para romances, ghostwriting e coautoria com Erigutemberg Meneses. Conheça seus livros, sonetos e projetos musicais.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Casa do Escritor | Erigutemberg Meneses">
+  <meta property="og:description" content="Da primeira ideia ao romance. Mentoria literária, ghostwriting, livros, poesia e música.">
+  <meta property="og:url" content="https://erigutembergmeneses-jpg.github.io/casa-do-escritor/">
+  <link rel="canonical" href="https://erigutembergmeneses-jpg.github.io/casa-do-escritor/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: { fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Work Sans"', 'system-ui', 'sans-serif'],
-      }}}
-    }
-  </script>
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#1A1E2E;--gold:#C9A227;--cream:#F5F1E6;--paper:#FFFDF6;--muted:#6B675A}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:#F5F1E6;color:#1A1E2E;font-family:"Work Sans",system-ui,sans-serif}
-    .font-serif-display{font-family:"Playfair Display",Georgia,serif}
-    .book-cover{background:linear-gradient(145deg,#2A3048,#1A1E2E 62%,#3B2F14);box-shadow:0 18px 30px rgba(0,0,0,.22), inset 0 0 0 1px rgba(201,162,39,.45)}
-    .book-cover-2{background:linear-gradient(145deg,#C9A227,#8E7014 58%,#1A1E2E)}
-    .book-cover-3{background:linear-gradient(145deg,#5B3A24,#2A1E14 65%,#C9A227)}
-    .texture{background-image:radial-gradient(rgba(201,162,39,.16) 1px,transparent 1px);background-size:22px 22px}
-    .no-scrollbar::-webkit-scrollbar{display:none}
-    .no-scrollbar{scrollbar-width:none}
-    input,select,textarea,button{font-family:inherit}
-    #boot-error{display:none;padding:2rem;font-family:system-ui;background:#fee;color:#900;border:2px solid #900;margin:1rem;border-radius:8px}
+    :root{
+      --ink:#17212b;--ink-2:#243442;--paper:#f7f4ed;--white:#fffefa;
+      --gold:#c5a15a;--gold-light:#e5d4aa;--muted:#69727a;--line:#e4ded1;
+      --serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+      --shadow:0 18px 48px rgba(23,33,43,.11);--radius:18px;--max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    button,input,select,textarea{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#94743b}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:var(--serif);line-height:1.14}
+    h1{font-size:clamp(2.7rem,6vw,5.4rem);font-weight:600;letter-spacing:-.035em}
+    h2{font-size:clamp(2rem,4vw,3.3rem);font-weight:600;letter-spacing:-.025em}
+    h3{font-size:1.42rem;font-weight:600}
+    .lead{font-size:clamp(1.05rem,1.7vw,1.24rem);color:#d9e0e2;max-width:650px}
+    .muted{color:var(--muted)}
+    .section{padding:92px 0}
+    .section-head{max-width:720px;margin-bottom:38px}
+    .section-head p{color:var(--muted);font-size:1.05rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid transparent;transition:.2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-gold{background:var(--gold);color:#17212b}
+    .btn-outline{border-color:rgba(255,255,255,.45);color:white}
+    .btn-dark{background:var(--ink);color:white}
+    .btn-light{background:var(--white);border-color:var(--line);color:var(--ink)}
+    .topline{background:#101820;color:#e9e4d8;font-size:.82rem;padding:8px 0;text-align:center}
+    .topline a{color:var(--gold-light);text-decoration:none}
+    header{position:sticky;top:0;z-index:50;background:rgba(23,33,43,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(197,161,90,.25)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{text-decoration:none;display:flex;align-items:center;gap:12px;color:white}
+    .brand-mark{height:42px;width:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:var(--serif);font-size:1.55rem}
+    .brand strong{font-family:var(--serif);font-size:1.12rem;display:block;line-height:1.15}
+    .brand small{display:block;font-size:.65rem;letter-spacing:.14em;color:var(--gold-light);margin-top:4px}
+    .navlinks{display:flex;align-items:center;gap:22px}
+    .navlinks a{color:#edf0ed;text-decoration:none;font-size:.9rem;font-weight:600}
+    .navlinks a:hover{color:var(--gold-light)}
+    .nav-cta{padding:10px 16px;font-size:.86rem}
+    .menu-toggle{display:none;background:none;color:white;border:1px solid #65717a;border-radius:10px;padding:8px 12px}
+    .hero{background:radial-gradient(ellipse at 82% 22%,rgba(197,161,90,.18),transparent 30%),linear-gradient(125deg,#17212b 0%,#203342 58%,#17212b 100%);color:white;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(135deg,transparent 49.7%,#c5a15a 50%,transparent 50.3%);background-size:72px 72px;mask-image:linear-gradient(90deg,transparent,black)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr .65fr;gap:60px;align-items:center;padding:88px 0 96px}
+    .hero h1{max-width:800px;margin:16px 0 22px}
+    .hero h1 em{font-style:normal;color:var(--gold-light)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .hero-note{margin-top:26px;color:#b8c2c5;font-size:.88rem}
+    .hero-art{min-height:390px;display:grid;place-items:center;position:relative}
+    .folio{width:min(300px,80%);aspect-ratio:3/4;background:linear-gradient(155deg,#354756,#17212b 60%,#4a3b22);border:1px solid rgba(229,212,170,.6);box-shadow:22px 26px 55px rgba(0,0,0,.36);padding:25px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(3deg);position:relative}
+    .folio:before{content:"";position:absolute;inset:10px;border:1px solid rgba(229,212,170,.25)}
+    .folio-kicker,.folio-author{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#e5d4aa;text-align:center;position:relative}
+    .folio-title{font-family:var(--serif);font-size:2.1rem;line-height:1.1;text-align:center;color:#fff8e8;position:relative}
+    .folio-rule{width:48px;height:1px;background:var(--gold);margin:14px auto}
+    .folio-sub{font-family:var(--serif);font-style:italic;text-align:center;color:#d5c9ad;font-size:.88rem;position:relative}
+    .hero-stamp{position:absolute;right:-4px;bottom:16px;border:1px solid rgba(229,212,170,.45);border-radius:50%;height:112px;width:112px;display:grid;place-items:center;text-align:center;color:var(--gold-light);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-12deg);background:rgba(23,33,43,.8)}
+    .proof-strip{background:#fffefa;border-bottom:1px solid var(--line)}
+    .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:24px 0}
+    .proof-item{display:flex;gap:12px;align-items:center;justify-content:center;text-align:left}
+    .proof-num{font-family:var(--serif);font-size:1.7rem;color:#94743b}
+    .proof-item span:last-child{font-size:.84rem;color:var(--muted);line-height:1.35}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 8px 24px rgba(23,33,43,.035)}
+    .card .num{font-size:.76rem;letter-spacing:.15em;color:#94743b;font-weight:700}
+    .card h3{margin:13px 0 12px}
+    .card p{color:var(--muted);margin-bottom:0}
+    .card ul{padding-left:19px;color:#4f5961;margin:18px 0 0}
+    .card li{margin:7px 0}
+    .service-card{display:flex;flex-direction:column}
+    .service-card .card-bottom{margin-top:auto;padding-top:24px}
+    .service-card.featured{border-color:#c5a15a;box-shadow:var(--shadow);position:relative}
+    .service-card.featured:before{content:"SERVIÇO EM DESTAQUE";position:absolute;top:-11px;left:25px;background:var(--gold);color:#17212b;font-size:.65rem;letter-spacing:.12em;font-weight:800;padding:4px 10px;border-radius:20px}
+    .dark-section{background:var(--ink);color:white}
+    .dark-section .section-head p{color:#c1c9cb}
+    .about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px;align-items:center}
+    .author-monogram{min-height:370px;background:linear-gradient(145deg,#2c4050,#17212b 65%,#4c3c22);border:1px solid rgba(197,161,90,.55);border-radius:var(--radius);display:grid;place-items:center;position:relative;overflow:hidden}
+    .author-monogram:before,.author-monogram:after{content:"";position:absolute;border:1px solid rgba(197,161,90,.25);border-radius:50%;width:270px;height:270px}
+    .author-monogram:after{width:330px;height:330px}
+    .author-monogram span{font-family:var(--serif);font-size:7rem;color:var(--gold-light);position:relative;z-index:1}
+    .about-copy p{color:#d2d9da}
+    .about-copy .signature{font-family:var(--serif);font-size:1.4rem;color:var(--gold-light);margin-top:26px}
+    .method{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+    .method-item{padding:22px 18px;border-top:2px solid var(--gold);background:rgba(255,255,255,.65)}
+    .method-item:before{counter-increment:step;content:"0" counter(step);font-family:var(--serif);font-size:1.8rem;color:#a18043}
+    .method-item h3{font-size:1.12rem;margin:12px 0 8px}
+    .method-item p{font-size:.9rem;color:var(--muted);margin:0}
+    .books-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+    .book{min-width:0}
+    .book-cover{aspect-ratio:2/3;padding:17px 13px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 24px rgba(23,33,43,.2);border:1px solid rgba(255,255,255,.22);position:relative;overflow:hidden;transition:.2s}
+    .book:hover .book-cover{transform:translateY(-5px)}
+    .book-cover:after{content:"";position:absolute;inset:8px;border:1px solid rgba(255,255,255,.22);pointer-events:none}
+    .book-cover b{font-family:var(--serif);font-size:clamp(1rem,1.6vw,1.35rem);line-height:1.12;text-align:center;color:#fff8e8;position:relative;z-index:1;margin:auto 0}
+    .book-cover small{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:#e7d8b8;text-align:center;position:relative;z-index:1}
+    .tone-1{background:linear-gradient(145deg,#24394a,#101a24 70%,#8b6d38)}
+    .tone-2{background:linear-gradient(145deg,#b38d47,#4b3a1c 70%,#17212b)}
+    .tone-3{background:linear-gradient(145deg,#684638,#211b1b 70%,#b08c4e)}
+    .tone-4{background:linear-gradient(145deg,#3b4a43,#17211c 70%,#9c8355)}
+    .tone-5{background:linear-gradient(145deg,#5c344b,#241d30 70%,#bd9c65)}
+    .book h3{font-family:var(--sans);font-size:1rem;line-height:1.3;margin:15px 0 5px}
+    .book p{font-size:.83rem;color:var(--muted);min-height:48px;margin-bottom:10px}
+    .book a{font-size:.84rem;font-weight:700;color:#8a6b34;text-decoration:none}
+    .book a:hover{text-decoration:underline}
+    .catalog-link{margin-top:35px;text-align:center}
+    .music-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+    .music-art{background:linear-gradient(145deg,#5b4052,#202938 65%,#b38d47);padding:35px;border-radius:var(--radius);min-height:340px;display:flex;flex-direction:column;justify-content:space-between;color:white;box-shadow:var(--shadow)}
+    .music-art .album-label{font-size:.72rem;letter-spacing:.2em;color:#eadab7}
+    .music-art strong{font-family:var(--serif);font-size:2.7rem;line-height:1.05}
+    .music-art small{color:#e5d4aa}
+    .track-list{display:grid;gap:10px}
+    .track{background:var(--white);border:1px solid var(--line);padding:14px 16px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .track strong{font-size:.95rem}
+    .track span{font-size:.75rem;color:var(--muted)}
+    .track audio{width:100%;max-width:220px;height:34px}
+    .music-note{font-size:.82rem;color:var(--muted);margin-top:14px}
+    .poetry-cta{background:#eee7d8;border:1px solid #dfd2b9;border-radius:var(--radius);padding:28px;margin-top:26px}
+    .poetry-cta p{color:#555d61}
+    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
+    .contact-panel{background:#fffefa;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+    .contact-panel label{display:block;font-weight:700;font-size:.82rem;margin-bottom:7px}
+    .contact-panel input,.contact-panel select,.contact-panel textarea{width:100%;border:1px solid #d8d2c6;border-radius:10px;padding:12px 13px;background:white;color:var(--ink);margin-bottom:16px}
+    .contact-panel textarea{min-height:130px;resize:vertical}
+    .contact-panel input:focus,.contact-panel select:focus,.contact-panel textarea:focus{outline:2px solid rgba(197,161,90,.35);border-color:#a88649}
+    .contact-copy p{color:#c4ccce}
+    .contact-method{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.13)}
+    .contact-method:last-child{border:0}
+    .contact-method a{color:var(--gold-light);text-decoration:none}
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    details{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+    summary{font-weight:700;cursor:pointer}
+    details p{color:var(--muted);margin:12px 0 0;font-size:.93rem}
+    footer{background:#101820;color:#b9c1c3;padding:34px 0;font-size:.84rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    footer a{color:var(--gold-light);text-decoration:none}
+    .legal-note{font-size:.8rem;color:#89949a;max-width:760px;margin-top:18px}
+    .mobile-cta{display:none}
+    @media(max-width:900px){
+      .navlinks{gap:13px}.navlinks a{font-size:.82rem}
+      .hero-grid{grid-template-columns:1fr .55fr;gap:20px}
+      .hero-art{min-height:300px}.folio{width:240px}
+      .books-grid{grid-template-columns:repeat(3,1fr)}
+      .method{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:700px){
+      .wrap{width:min(var(--max),calc(100% - 30px))}
+      .section{padding:68px 0}
+      .menu-toggle{display:block}
+      .nav{min-height:68px}
+      .navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#17212b;padding:18px 22px 22px;flex-direction:column;align-items:stretch;border-top:1px solid rgba(197,161,90,.25)}
+      .navlinks.open{display:flex}
+      .navlinks a{padding:8px 0;font-size:.95rem}
+      .nav-cta{display:none}
+      .hero-grid{grid-template-columns:1fr;padding:66px 0 72px}
+      .hero-art{display:none}
+      .proof-grid{grid-template-columns:1fr;gap:12px;padding:20px 0}
+      .proof-item{justify-content:flex-start}
+      .cards,.about-grid,.music-grid,.contact-grid{grid-template-columns:1fr}
+      .about-grid{gap:28px}
+      .author-monogram{min-height:240px}
+      .books-grid{grid-template-columns:repeat(2,1fr);gap:20px 14px}
+      .book p{min-height:0}
+      .track{align-items:flex-start;flex-direction:column}
+      .track audio{max-width:none}
+      .faq{grid-template-columns:1fr}
+      .mobile-cta{display:block;position:fixed;z-index:40;bottom:12px;left:12px;right:12px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,.25)}
+      footer{padding-bottom:90px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
 <body>
-  <div id="root"></div>
-  <div id="boot-error">
-    <h2>⚠️ O site não conseguiu iniciar</h2>
-    <p><b>Motivo provável:</b> os scripts do React/Babel (CDNs unpkg.com) não carregaram. Verifique sua conexão ou bloqueadores de anúncio.</p>
-    <p>Abra o Console (F12) para ver o erro exato.</p>
-  </div>
+  <div class="topline">Conheça também meus poemas no <a href="https://www.recantodasletras.com.br/autores/erigutembergmeneses" target="_blank" rel="noopener">Recanto das Letras →</a></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Casa do Escritor - início">
+        <span class="brand-mark">E</span><span><strong>Casa do Escritor</strong><small>ERIGUTEMBERG MENESES</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+      <nav class="navlinks" id="navlinks" aria-label="Navegação principal">
+        <a href="#servicos">Mentoria e escrita</a><a href="#autor">O escritor</a><a href="#livros">Livros</a><a href="#poesia">Poesia e música</a><a href="#contato">Contato</a>
+      </nav>
+      <a class="btn btn-gold nav-cta" href="#contato">Apresente seu projeto</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow" style="color:#e5d4aa">Mentoria literária · Ghostwriting · Coautoria</div>
+          <h1>Sua história merece se tornar um <em>romance.</em></h1>
+          <p class="lead">Você tem uma ideia, personagens ou uma história de vida? Posso ajudar a transformar esse material em um livro — orientando sua escrita ou assumindo a construção textual do projeto.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#servicos">Conheça os serviços <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#livros">Conheça minhas obras</a>
+          </div>
+          <p class="hero-note">Com Erigutemberg Meneses — escritor, poeta, pesquisador e mentor literário.</p>
+        </div>
+        <div class="hero-art" aria-label="Composição visual de um livro">
+          <div class="folio">
+            <span class="folio-kicker">Casa do Escritor apresenta</span>
+            <div><div class="folio-title">A arte de<br>construir<br>histórias</div><div class="folio-rule"></div><div class="folio-sub">Da ideia à narrativa. Da narrativa ao livro.</div></div>
+            <span class="folio-author">Erigutemberg Meneses</span>
+          </div>
+          <div class="hero-stamp">Literatura<br>e criação<br>autoral</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="proof-strip">
+      <div class="wrap proof-grid">
+        <div class="proof-item"><span class="proof-num">01</span><span>Experiência prática de<br>quem também publica livros</span></div>
+        <div class="proof-item"><span class="proof-num">02</span><span>Acompanhamento da ideia<br>ao manuscrito final</span></div>
+        <div class="proof-item"><span class="proof-num">03</span><span>Mentoria, ghostwriting<br>e projetos em coautoria</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="servicos">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Como posso ajudar</div>
+          <h2>Três caminhos para realizar seu livro</h2>
+          <p>Nem todo autor precisa da mesma ajuda. O trabalho começa por entender sua ideia, o que você já escreveu e o tipo de participação que deseja contratar.</p>
+        </div>
+        <div class="cards">
+          <article class="card service-card featured">
+            <span class="num">01 · ORIENTAÇÃO</span>
+            <h3>Mentoria para escrever seu romance</h3>
+            <p>Você escreve. Eu acompanho o processo, ajudo a resolver problemas narrativos e ofereço orientação individual para que o manuscrito ganhe forma e consistência.</p>
+            <ul><li>Concepção e sinopse</li><li>Enredo, conflitos e estrutura</li><li>Personagens e diálogos</li><li>Ritmo, cenas e voz narrativa</li><li>Leitura crítica e revisão de desenvolvimento</li></ul>
+            <div class="card-bottom"><a class="btn btn-dark" href="#contato" data-service="Mentoria para escrever um romance">Quero mentoria →</a></div>
+          </article>
+          <article class="card service-card">
+            <span class="num">02 · ESCRITA PROFISSIONAL</span>
+            <h3>Ghostwriting — seu projeto, minha escrita</h3>
+            <p>Você compartilha a história, as ideias e os materiais. Eu planejo e desenvolvo o texto, com validações ao longo do trabalho e respeito à voz que o projeto exige.</p>
+            <ul><li>Entrevistas e levantamento de conteúdo</li><li>Planejamento e arquitetura do livro</li><li>Escrita integral ou parcial</li><li>Rodadas de revisão acordadas</li><li>Confidencialidade contratual</li></ul>
+            <div class="card-bottom"><a class="btn btn-dark" href="#contato" data-service="Ghostwriting">Conversar sobre ghostwriting →</a></div>
+          </article>
+          <article class="card service-card">
+            <span class="num">03 · CRIAÇÃO COMPARTILHADA</span>
+            <h3>Coautoria e projetos especiais</h3>
+            <p>Para projetos em que a contribuição criativa e intelectual será compartilhada, com papéis, créditos e direitos definidos desde o início.</p>
+            <ul><li>Romances históricos e ficcionais</li><li>Biografias e memórias</li><li>Histórias familiares</li><li>Livros institucionais e empresariais</li><li>Projetos técnicos e ensaísticos</li></ul>
+            <div class="card-bottom"><a class="btn btn-dark" href="#contato" data-service="Coautoria">Apresentar projeto →</a></div>
+          </article>
+        </div>
+        <p class="muted" style="font-size:.85rem;margin-top:22px">Cada projeto recebe uma proposta própria, definida após conversa inicial e avaliação de extensão, pesquisa, complexidade, prazo e modalidade de participação.</p>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="autor">
+      <div class="wrap about-grid">
+        <div class="author-monogram" aria-label="Monograma de Erigutemberg Meneses"><span>EM</span></div>
+        <div class="about-copy">
+          <div class="eyebrow" style="color:#e5d4aa">O escritor por trás da Casa</div>
+          <h2>Erigutemberg Meneses</h2>
+          <p class="lead">Escritor, poeta, pesquisador, advogado e economista.</p>
+          <p>A Casa do Escritor nasce da experiência de quem conhece a escrita por dentro: a pesquisa que antecede uma obra, a arquitetura que sustenta uma narrativa, a construção de personagens, o trabalho com a linguagem e a persistência necessária para levar um manuscrito até sua forma final.</p>
+          <p>Minha produção transita entre o romance, o ensaio, a reflexão jurídica e a poesia. Essa diversidade permite trabalhar com projetos de diferentes naturezas sem perder de vista aquilo que dá unidade a um bom livro: clareza de propósito, consistência e voz própria.</p>
+          <p>Não ofereço fórmulas prontas. Cada história exige método, escuta e escolhas narrativas adequadas ao que se pretende contar.</p>
+          <div class="signature">Erigutemberg Meneses</div>
+          <p style="font-size:.84rem;color:#aeb9bc;margin-top:2px">Escritor · Poeta · Mentor literário</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">O processo de criação</div>
+          <h2>Da primeira conversa ao manuscrito</h2>
+          <p>Um projeto literário precisa de direção, mas também de espaço para descobrir o que a própria história quer se tornar.</p>
+        </div>
+        <div class="method">
+          <div class="method-item"><h3>Escuta e diagnóstico</h3><p>Entender a ideia, o objetivo do livro, o público e o material já existente.</p></div>
+          <div class="method-item"><h3>Arquitetura narrativa</h3><p>Definir gênero, estrutura, enredo, cronologia, conflitos e personagens.</p></div>
+          <div class="method-item"><h3>Desenvolvimento</h3><p>Orientar a escrita ou desenvolver os capítulos, conforme o serviço contratado.</p></div>
+          <div class="method-item"><h3>Leitura e acabamento</h3><p>Verificar coerência, continuidade, linguagem e preparação do manuscrito.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="livros" style="background:#fffefa">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Biblioteca do autor</div>
+          <h2>Livros e publicações</h2>
+          <p>Conheça algumas obras de Erigutemberg Meneses. Os links levam às páginas de consulta ou compra nas plataformas indicadas. Disponibilidade, formatos e preços são definidos pelas respectivas lojas.</p>
+        </div>
+        <div class="books-grid">
+          <article class="book"><div class="book-cover tone-1"><small>Erigutemberg Meneses</small><b>ARQUITETURAS<br>DA DÚVIDA</b><small>Direito e processo penal</small></div><h3>Arquiteturas da Dúvida</h3><p>Como redesenhar o sistema penal contra os vieses da mente humana.</p><a href="https://clubedeautores.com.br/livro/arquiteturas-da-duvida" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-2"><small>Erigutemberg Meneses</small><b>O NÓ DO<br>POÇO SECO</b><small>Romance histórico</small></div><h3>O Nó do Poço Seco</h3><p>Romance histórico publicado no Clube de Autores.</p><a href="https://clubedeautores.com.br/livro/o-no-do-poco-seco" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-3"><small>Erigutemberg Meneses</small><b>PORTAS DA<br>SOLIDÃO</b><small>Literatura</small></div><h3>Portas da Solidão</h3><p>Uma obra literária em torno da experiência da solidão.</p><a href="https://clubedeautores.com.br/livro/portas-da-solidao" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-4"><small>Erigutemberg Meneses</small><b>MUITAS ALMAS<br>EM NINGUÉM</b><small>Literatura</small></div><h3>Muitas Almas em Ninguém</h3><p>Obra publicada no catálogo do Clube de Autores.</p><a href="https://clubedeautores.com.br/livro/muitas-almas-em-ninguem" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-5"><small>Erigutemberg Meneses</small><b>PROTOCOLO<br>EROS</b><small>Prosa e poesia</small></div><h3>Protocolo Eros</h3><p>Uma incursão pela prosa e pela poesia.</p><a href="https://clubedeautores.com.br/livro/protocolo-eros" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-2"><small>Erigutemberg Meneses</small><b>AOS PÉS<br>FEMININOS</b><small>Sonetos musicados</small></div><h3>Aos Pés Femininos</h3><p>Livro-álbum com sonetos musicados em diferentes idiomas.</p><a href="https://clubedeautores.com.br/livro/aos-pes-femininos" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-1"><small>Erigutemberg Meneses</small><b>NEURO-<br>DIREITO</b><small>Direito</small></div><h3>Neurodireito</h3><p>Publicação sobre a intersecção entre neurociência e direito.</p><a href="https://clubedeautores.com.br/livro/neurodireito" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-3"><small>Erigutemberg Meneses</small><b>PADRE<br>VERDEIXA</b><small>Narrativa</small></div><h3>Padre Verdeixa</h3><p>Obra narrativa disponível no catálogo do Clube de Autores.</p><a href="https://clubedeautores.com.br/livro/padre-verdeixa" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-4"><small>Erigutemberg Meneses</small><b>RASTREANDO<br>OS RASTREADORES</b><small>Investigação</small></div><h3>Rastreando os Rastreadores</h3><p>Publicação disponível no Clube de Autores.</p><a href="https://clubedeautores.com.br/livro/rastreando-os-rastreadores" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+          <article class="book"><div class="book-cover tone-5"><small>Erigutemberg Meneses</small><b>VIRGÍLIO<br>VÁRZEA</b><small>Literatura</small></div><h3>Virgílio Várzea</h3><p>Publicação disponível no catálogo do Clube de Autores.</p><a href="https://clubedeautores.com.br/livro/virgilio-varzea" target="_blank" rel="noopener">Consultar / comprar ↗</a></article>
+        </div>
+        <div class="catalog-link"><a class="btn btn-dark" href="https://erigutemberg.jusbrasil.com.br/livros" target="_blank" rel="noopener">Ver outras publicações ↗</a></div>
+        <p class="muted" style="font-size:.78rem;text-align:center;margin-top:18px">As capas tipográficas desta versão são representações provisórias. Substitua-as pelas capas oficiais dos livros antes da divulgação final.</p>
+      </div>
+    </section>
+
+    <section class="section" id="poesia">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Outra dimensão da palavra</div>
+          <h2>A poesia também pode ser ouvida</h2>
+          <p>Além da prosa e do ensaio, Erigutemberg Meneses desenvolve uma produção poética dedicada ao soneto. Alguns poemas recebem melodias, interpretação vocal e arranjos, aproximando literatura e música.</p>
+        </div>
+        <div class="music-grid">
+          <div class="music-art"><span class="album-label">POESIA · VOZ · MELODIA</span><strong>Do verso<br>à canção.</strong><small>Sonetos e experiências de musicagem<br>Erigutemberg Meneses</small></div>
+          <div>
+            <h3>Ouça algumas faixas</h3>
+            <p class="muted" style="font-size:.9rem">Os arquivos abaixo utilizam a pasta <code>/audio</code> já existente no repositório. Se algum áudio não tocar, confira se o nome do arquivo no GitHub corresponde exatamente ao indicado.</p>
+            <div class="track-list">
+              <div class="track"><div><strong>Primavera</strong><br><span>Faixa 01</span></div><audio controls preload="none" src="audio/01.mp3%20-%20Primavera.mp3">Seu navegador não suporta áudio.</audio></div>
+              <div class="track"><div><strong>Quem vê a chuva cair</strong><br><span>Faixa 02</span></div><audio controls preload="none" src="audio/02.mp3%20-%20Quem%20v%C3%AA%20a%20chuva%20cair.mp3">Seu navegador não suporta áudio.</audio></div>
+              <div class="track"><div><strong>O Transe do Twist</strong><br><span>Faixa 03</span></div><audio controls preload="none" src="audio/03.mp3%20-%20O%20Transe%20do%20Twist.mp3">Seu navegador não suporta áudio.</audio></div>
+              <div class="track"><div><strong>Se você me quiser</strong><br><span>Faixa 04</span></div><audio controls preload="none" src="audio/04.mp3%20-%20Se%20voc%C3%AA%20me%20quiser.mp3">Seu navegador não suporta áudio.</audio></div>
+              <div class="track"><div><strong>Gato selvagem</strong><br><span>Faixa 05</span></div><audio controls preload="none" src="audio/05.mp3%20-%20Gato%20selvagem.mp3">Seu navegador não suporta áudio.</audio></div>
+              <div class="track"><div><strong>Meio tímido</strong><br><span>Faixa 07</span></div><audio controls preload="none" src="audio/07.mp3%20-%20Meio%20timido.mp3">Seu navegador não suporta áudio.</audio></div>
+            </div>
+          </div>
+        </div>
+        <div class="poetry-cta">
+          <h3>Conheça os sonetos — ou transforme seu poema em música</h3>
+          <p>Leia a produção poética no Recanto das Letras e consulte a possibilidade de desenvolver uma melodia e um arranjo para um poema de sua autoria. Cada trabalho depende de avaliação do texto, definição artística e ajuste dos direitos de utilização.</p>
+          <a class="btn btn-dark" href="https://www.recantodasletras.com.br/autores/erigutembergmeneses" target="_blank" rel="noopener">Ler os sonetos ↗</a>
+          <a class="btn btn-light" href="#contato" style="margin-left:8px">Consultar musicagem</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#eee8dc">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Perguntas frequentes</div>
+          <h2>Antes de começar</h2>
+        </div>
+        <div class="faq">
+          <details><summary>Preciso já ter começado a escrever?</summary><p>Não. A mentoria pode começar com uma ideia ainda inicial. Se já houver sinopse, capítulos ou manuscrito, esse material será considerado no diagnóstico.</p></details>
+          <details><summary>Qual é a diferença entre mentoria e ghostwriting?</summary><p>Na mentoria, você escreve com orientação. No ghostwriting, o profissional desenvolve o texto a partir das informações, ideias e diretrizes fornecidas pelo contratante.</p></details>
+          <details><summary>Como funciona a confidencialidade?</summary><p>As condições de sigilo, circulação dos materiais, atribuição de créditos e utilização do texto devem ser definidas por escrito antes do início do projeto.</p></details>
+          <details><summary>Você garante a publicação por uma editora?</summary><p>Não. O serviço de criação ou acompanhamento do manuscrito não implica aceitação por editora. A submissão editorial e a publicação são etapas distintas.</p></details>
+          <details><summary>Como é calculado o orçamento?</summary><p>Após uma conversa inicial, a proposta considera extensão estimada, complexidade, pesquisa, prazo, quantidade de revisões e modalidade de participação.</p></details>
+          <details><summary>É possível trabalhar com biografias ou livros institucionais?</summary><p>Sim. Esses projetos podem ser avaliados na modalidade de ghostwriting ou coautoria, conforme a natureza do conteúdo e a participação de cada envolvido.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="contato">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow" style="color:#e5d4aa">Vamos conversar</div>
+          <h2>Conte-me a ideia do seu livro.</h2>
+          <p>Uma conversa inicial ajuda a identificar o estágio do projeto e a modalidade de trabalho mais adequada. Não é necessário ter tudo resolvido: basta apresentar o ponto de partida.</p>
+          <div class="contact-method"><strong>WhatsApp</strong><br><a href="https://wa.me/5547988911436" target="_blank" rel="noopener">(47) 98891-1436</a></div>
+          <div class="contact-method"><strong>E-mail</strong><br><a href="mailto:erigutembergmeneses@gmail.com">erigutembergmeneses@gmail.com</a></div>
+          <p class="legal-note">O envio de uma consulta não cria obrigação de contratação. Escopo, valores, prazos, confidencialidade e direitos serão tratados em proposta e contrato próprios.</p>
+        </div>
+        <form class="contact-panel" id="projectForm">
+          <h3>Apresente seu projeto</h3>
+          <label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required placeholder="Como podemos chamar você?">
+          <label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="seuemail@exemplo.com">
+          <label for="whatsapp">WhatsApp (opcional)</label><input id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="DDD + número">
+          <label for="tipo">Que tipo de ajuda procura?</label>
+          <select id="tipo" name="tipo"><option>Mentoria para escrever um romance</option><option>Ghostwriting</option><option>Coautoria</option><option>Biografia ou memórias</option><option>Livro institucional ou técnico</option><option>Transformar poema em música</option><option>Ainda não sei — quero conversar</option></select>
+          <label for="ideia">Conte brevemente sua ideia</label><textarea id="ideia" name="ideia" required placeholder="Qual é a história, o tema ou o projeto que você gostaria de desenvolver?"></textarea>
+          <button class="btn btn-gold" type="submit">Enviar consulta pelo WhatsApp →</button>
+          <p class="muted" style="font-size:.76rem;margin:12px 0 0">Ao enviar, será aberta uma conversa no WhatsApp com os dados preenchidos. Você poderá revisar a mensagem antes de enviá-la.</p>
+          <p id="formStatus" role="status" aria-live="polite" style="font-size:.85rem;margin:10px 0 0"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div><strong style="font-family:var(--serif);color:white;font-size:1.15rem">Casa do Escritor</strong><br>Erigutemberg Meneses</div>
+        <div><a href="#inicio">Início</a> · <a href="#servicos">Serviços</a> · <a href="#livros">Livros</a> · <a href="#poesia">Poesia e música</a> · <a href="#contato">Contato</a></div>
+        <div>© <span id="year"></span> Erigutemberg Meneses</div>
+      </div>
+      <p class="legal-note">Os serviços são contratados mediante avaliação e instrumento próprio. Os links de compra direcionam a plataformas externas, cujos preços, estoque e condições podem mudar. Direitos autorais e créditos são tratados conforme a legislação aplicável e o contrato de cada projeto.</p>
+    </div>
+  </footer>
+
+  <a class="btn btn-gold mobile-cta" href="#contato">Apresente seu projeto</a>
 
   <script>
-    setTimeout(function(){
-      var r = document.getElementById('root');
-      if (!r || r.children.length === 0) {
-        document.getElementById('boot-error').style.display = 'block';
-      }
-    }, 6000);
-  </script>
-
-  <script type="text/babel" data-presets="react">
-    const { useState, useEffect, useMemo, useRef } = React;
-
-    // ================== ÍCONES SVG INLINE ==================
-    function Svg({ children, size = 18, className = "", ...rest }) {
-      return React.createElement("svg", {
-        xmlns: "http://www.w3.org/2000/svg", width: size, height: size,
-        viewBox: "0 0 24 24", fill: "none", stroke: "currentColor",
-        strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round",
-        className, ...rest
-      }, children);
-    }
-    const Icon = {
-      BookOpen: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" }), React.createElement("path", { d: "M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" })),
-      ShoppingBag: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" }), React.createElement("path", { d: "M3 6h18" }), React.createElement("path", { d: "M16 10a4 4 0 0 1-8 0" })),
-      Search: (p) => React.createElement(Svg, p, React.createElement("circle", { cx: 11, cy: 11, r: 8 }), React.createElement("path", { d: "m21 21-4.3-4.3" })),
-      Play: (p) => React.createElement(Svg, p, React.createElement("polygon", { points: "6 3 20 12 6 21 6 3" })),
-      Pause: (p) => React.createElement(Svg, p, React.createElement("rect", { x: 6, y: 4, width: 4, height: 16 }), React.createElement("rect", { x: 14, y: 4, width: 4, height: 16 })),
-      Mail: (p) => React.createElement(Svg, p, React.createElement("rect", { x: 2, y: 4, width: 20, height: 16, rx: 2 }), React.createElement("path", { d: "m22 7-10 5L2 7" })),
-      Phone: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" })),
-      Menu: (p) => React.createElement(Svg, p, React.createElement("line", { x1: 3, y1: 6, x2: 21, y2: 6 }), React.createElement("line", { x1: 3, y1: 12, x2: 21, y2: 12 }), React.createElement("line", { x1: 3, y1: 18, x2: 21, y2: 18 })),
-      X: (p) => React.createElement(Svg, p, React.createElement("line", { x1: 18, y1: 6, x2: 6, y2: 18 }), React.createElement("line", { x1: 6, y1: 6, x2: 18, y2: 18 })),
-      Plus: (p) => React.createElement(Svg, p, React.createElement("line", { x1: 12, y1: 5, x2: 12, y2: 19 }), React.createElement("line", { x1: 5, y1: 12, x2: 19, y2: 12 })),
-      Minus: (p) => React.createElement(Svg, p, React.createElement("line", { x1: 5, y1: 12, x2: 19, y2: 12 })),
-      Trash2: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M3 6h18" }), React.createElement("path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" }), React.createElement("path", { d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" })),
-      Check: (p) => React.createElement(Svg, p, React.createElement("polyline", { points: "20 6 9 17 4 12" })),
-      ChevronDown: (p) => React.createElement(Svg, p, React.createElement("polyline", { points: "6 9 12 15 18 9" })),
-      Music2: (p) => React.createElement(Svg, p, React.createElement("circle", { cx: 8, cy: 18, r: 4 }), React.createElement("path", { d: "M12 18V2l7 4" })),
-      Feather: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" }), React.createElement("line", { x1: 16, y1: 8, x2: 2, y2: 22 }), React.createElement("line", { x1: 17.5, y1: 15, x2: 9, y2: 15 })),
-      ArrowRight: (p) => React.createElement(Svg, p, React.createElement("line", { x1: 5, y1: 12, x2: 19, y2: 12 }), React.createElement("polyline", { points: "12 5 19 12 12 19" })),
-      Clock: (p) => React.createElement(Svg, p, React.createElement("circle", { cx: 12, cy: 12, r: 10 }), React.createElement("polyline", { points: "12 6 12 12 16 14" })),
-      Sparkles: (p) => React.createElement(Svg, p, React.createElement("path", { d: "m12 3 1.9 5.7L20 10l-6.1 1.3L12 17l-1.9-5.7L4 10l6.1-1.3L12 3z" })),
-      Quote: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" }), React.createElement("path", { d: "M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" })),
-      Send: (p) => React.createElement(Svg, p, React.createElement("line", { x1: 22, y1: 2, x2: 11, y2: 13 }), React.createElement("polygon", { points: "22 2 15 22 11 13 2 9 22 2" })),
-      AudioLines: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M2 10v3" }), React.createElement("path", { d: "M6 6v11" }), React.createElement("path", { d: "M10 3v18" }), React.createElement("path", { d: "M14 8v7" }), React.createElement("path", { d: "M18 5v13" }), React.createElement("path", { d: "M22 10v3" })),
-      MessageCircle: (p) => React.createElement(Svg, p, React.createElement("path", { d: "M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" })),
-    };
-    const BookOpen = Icon.BookOpen, ShoppingBag = Icon.ShoppingBag, Search = Icon.Search,
-      Play = Icon.Play, Pause = Icon.Pause, Mail = Icon.Mail, Phone = Icon.Phone,
-      Menu = Icon.Menu, X = Icon.X, Plus = Icon.Plus, Minus = Icon.Minus,
-      Trash2 = Icon.Trash2, Check = Icon.Check, ChevronDown = Icon.ChevronDown,
-      Music2 = Icon.Music2, Feather = Icon.Feather, ArrowRight = Icon.ArrowRight,
-      Clock = Icon.Clock, Sparkles = Icon.Sparkles, Quote = Icon.Quote,
-      Send = Icon.Send, AudioLines = Icon.AudioLines, MessageCircle = Icon.MessageCircle;
-
-    // ================== CONFIG ==================
-    const WEB3FORMS_KEY = "COLE-SUA-CHAVE-AQUI";
-    const WA = "5547988911436";
-    const EMAIL = "erigutembergmeneses@gmail.com";
-    const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
-    const money = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-
-    // ================== DADOS ==================
-    const PRODUCTS = [
-  {
-    id: "virgilio-varzea",
-    name: "Virgílio Várzea",
-    price: 56.49,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Obra publicada pelo Clube de Autores. Preço para versão impressa: R$ 56,49. eBook: R$ 24,57.",
-    cover: "VIRGÍLIO VÁRZEA",
-    coverClass: "book-cover",
-    link: "https://clubedeautores.com.br/livro/virgilio-varzea"
-  },
-  {
-    id: "arquiteturas-duvida",
-    name: "Arquiteturas da Dúvida",
-    price: 93.18,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Como redesenhar o sistema penal contra os vieses da mente humana. Preço impresso: R$ 93,18. eBook: R$ 43,09.",
-    cover: "ARQUITETURAS DA DÚVIDA",
-    coverClass: "book-cover-2",
-    link: "https://clubedeautores.com.br/livro/arquiteturas-da-duvida"
-  },
-  {
-    id: "portas-solidao",
-    name: "Portas da Solidão",
-    price: 46.35,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Uma obra que mergulha na solidão humana. Preço impresso: R$ 46,35. eBook: R$ 24,57.",
-    cover: "PORTAS DA SOLIDÃO",
-    coverClass: "book-cover-3",
-    link: "https://clubedeautores.com.br/livro/portas-da-solidao"
-  },
-  {
-    id: "muitas-almas",
-    name: "MUITAS ALMAS EM NINGUÉM",
-    price: 49.72,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Uma obra que explora a multiplicidade do ser. Preço impresso: R$ 49,72. eBook: R$ 24,57.",
-    cover: "MUITAS ALMAS EM NINGUÉM",
-    coverClass: "book-cover",
-    link: "https://clubedeautores.com.br/livro/muitas-almas-em-ninguem"
-  },
-  {
-    id: "protocolo-eros",
-    name: "Protocolo Eros",
-    price: 115.32,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Uma incursão pela prosa e pela poesia. Preço impresso: R$ 115,32. eBook: R$ 49,27.",
-    cover: "PROTOCOLO EROS",
-    coverClass: "book-cover-2",
-    link: "https://clubedeautores.com.br/livro/protocolo-eros"
-  },
-  {
-    id: "no-do-poco-seco",
-    name: "O nó do poço seco",
-    price: 93.65,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Romance histórico. Preço impresso: R$ 93,65. eBook: R$ 24,57.",
-    cover: "O NÓ DO POÇO SECO",
-    coverClass: "book-cover-3",
-    link: "https://clubedeautores.com.br/livro/o-no-do-poco-seco"
-  },
-  {
-    id: "aos-pes-femininos",
-    name: "Aos Pés Femininos",
-    price: 73.09,
-    category: "Música",
-    tag: "Livro-Álbum",
-    desc: "Doze sonetos em dez idiomas, musicados por inteligência artificial. Preço impresso: R$ 73,09. eBook: R$ 24,57.",
-    cover: "AOS PÉS FEMININOS",
-    coverClass: "book-cover",
-    link: "https://clubedeautores.com.br/livro/aos-pes-femininos"
-  },
-  {
-    id: "neurodireito",
-    name: "NEURODIREITO",
-    price: 51.19,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Uma obra pioneira sobre a intersecção entre neurociência e direito. Preço impresso: R$ 51,19. eBook: R$ 24,57.",
-    cover: "NEURODIREITO",
-    coverClass: "book-cover-2",
-    link: "https://clubedeautores.com.br/livro/neurodireito"
-  },
-  {
-    id: "padre-verdeixa",
-    name: "PADRE VERDEIXA",
-    price: 53.34,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Uma narrativa envolvente. Preço impresso: R$ 53,34. eBook: R$ 24,57.",
-    cover: "PADRE VERDEIXA",
-    coverClass: "book-cover-3",
-    link: "https://clubedeautores.com.br/livro/padre-verdeixa"
-  },
-  {
-    id: "rastreando-rastreadores",
-    name: "Rastreando os rastreadores",
-    price: 93.24,
-    category: "Livros",
-    tag: "Clube de Autores",
-    desc: "Uma investigação profunda. Preço impresso: R$ 93,24. eBook: R$ 43,09.",
-    cover: "RASTREANDO OS RASTREADORES",
-    coverClass: "book-cover",
-    link: "https://clubedeautores.com.br/livro/rastreando-os-rastreadores"
-  }
-];
-
-    // ✅ SEUS MP3 REAIS — nomes idênticos aos arquivos em /audio/
-    const TRACKS = [
-      { name: "Primavera", file: "01.mp3 - Primavera" },
-      { name: "Quem vê a chuva cair", file: "02.mp3 - Quem vê a chuva cair" },
-      { name: "O Transe do Twist", file: "03.mp3 - O Transe do Twist" },
-      { name: "Se você me quiser", file: "04.mp3 - Se você me quiser" },
-      { name: "Gato selvagem", file: "05.mp3 - Gato selvagem" },
-      { name: "Meio tímido", file: "07.mp3 - Meio timido" },
-    ];
-
-    const SONNETS = [
-      { title:"Soneto do Primeiro Verso", theme:"Amor", excerpt:"Antes do verso, havia um silêncio inteiro; depois, teu nome fez do papel caminho.", full:"Antes do verso, havia um silêncio inteiro; depois, teu nome fez do papel caminho. O amor chegou sem pedir roteiro e transformou a espera em pergaminho." },
-      { title:"O Tempo e a Tinta", theme:"Tempo", excerpt:"O tempo escreve em nós sem pedir licença, e cada ruga guarda um parágrafo.", full:"O tempo escreve em nós sem pedir licença, e cada ruga guarda um parágrafo. Não há borracha para a experiência, nem pressa que apague o que foi fato." },
-      { title:"Soneto da Balança", theme:"Direito", excerpt:"A justiça não mora só no processo: mora no olhar de quem ouve o outro.", full:"A justiça não mora só no processo: mora no olhar de quem ouve o outro. A lei é letra, mas também é começo de um pacto que se faz com o tesouro da palavra." },
-      { title:"Economia do Afeto", theme:"Economia", excerpt:"Há riquezas que não cabem no balanço: um abraço vale mais que um ativo.", full:"Há riquezas que não cabem no balanço: um abraço vale mais que um ativo. A escassez maior não é do dinheiro, é de tempo, de escuta, de motivo." },
-      { title:"Carta para a Saudade", theme:"Saudade", excerpt:"Saudade é uma casa com a luz acesa, esperando alguém que já partiu.", full:"Saudade é uma casa com a luz acesa, esperando alguém que já partiu. É o cheiro do café sobre a mesa e a cadeira que insiste em existir." },
-      { title:"Oração em Quatorze Versos", theme:"Fé", excerpt:"Quando a noite pesa mais que o dia, acendo um verso como quem ora.", full:"Quando a noite pesa mais que o dia, acendo um verso como quem ora. A fé não é fuga, é travessia; é a certeza que nasce da demora." },
-      { title:"Amor que Fica", theme:"Amor", excerpt:"Não prometo o infinito em voz alta: prometo o cuidado em cada manhã.", full:"Não prometo o infinito em voz alta: prometo o cuidado em cada manhã. O amor não se mede pela falta, mas pela presença que nos irmana." },
-      { title:"O Relógio do Poeta", theme:"Tempo", excerpt:"O poeta não corre contra o tempo: ele senta e ouve o que o tempo diz.", full:"O poeta não corre contra o tempo: ele senta e ouve o que o tempo diz. Cada hora é um verso em movimento, cada ano, um capítulo feliz." },
-      { title:"Defesa do Soneto", theme:"Direito", excerpt:"Defendo o verso como se defende um réu inocente: com provas de alma.", full:"Defendo o verso como se defende um réu inocente: com provas de alma. A poesia, senhores, não ofende: ela absolve o medo e acalma." },
-      { title:"Moeda de Memória", theme:"Economia", excerpt:"Guardei no cofre do peito um tesouro: as tardes simples que não têm valor.", full:"Guardei no cofre do peito um tesouro: as tardes simples que não têm valor. Nenhum juro paga o riso de ouro, nenhuma bolsa compra o esplendor." },
-      { title:"Saudade da Infância", theme:"Saudade", excerpt:"A rua era um livro aberto ao vento, e cada jogo, um capítulo inteiro.", full:"A rua era um livro aberto ao vento, e cada jogo, um capítulo inteiro. O tempo, então, andava mais lento, e o futuro era um brinquedo inteiro." },
-      { title:"Fé do Escritor", theme:"Fé", excerpt:"Escrevo como quem acende uma vela: para que a palavra ilumine o escuro.", full:"Escrevo como quem acende uma vela: para que a palavra ilumine o escuro. A fé é a tinta que não se revela até que o verso encontre o seu futuro." },
-    ];
-    const THEMES = ["Todos","Amor","Tempo","Direito","Economia","Saudade","Fé"];
-    const CATS = ["Todos","Livros","Digital","Kits","Música","Educação"];
-    const CATALOG = [
-      { name:"Protocolo Eros — Internet Archive", href:"https://archive.org/details/protocolo-eros", label:"Internet Archive", desc:"Álbuns, livros e sonetos musicados" },
-      { name:"Meus livros | JusBrasil", href:"https://erigutemberg.jusbrasil.com.br/livros", label:"JusBrasil", desc:"Artigos jurídicos e livros" },
-      { name:"Publicações | JusBrasil", href:"https://erigutemberg.jusbrasil.com.br/publicacoes", label:"JusBrasil", desc:"Artigos jurídicos e livros" },
-      { name:"Recanto das Letras", href:"https://www.recantodasletras.com.br/autores/erigutembergmeneses", label:"Recanto das Letras", desc:"Mais de 2.000 sonetos publicados" },
-    ];
-
-    async function saveRecord(collection, value) {
-      if (WEB3FORMS_KEY === "COLE-SUA-CHAVE-AQUI") {
-        console.warn("[DEMO]", collection, value);
-        return { ok: true, demo: true };
-      }
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: `[Casa do Escritor] Novo ${collection}`, from_name: "Site Casa do Escritor", ...value }),
-      });
-      const json = await res.json();
-      if (!json.success) throw new Error("Não foi possível salvar. Tente novamente.");
-      return json;
-    }
-
-    // ================== APP ==================
-    function App() {
-      const [mobile, setMobile] = useState(false);
-      const [cart, setCart] = useState({});
-      const [cat, setCat] = useState("Todos");
-      const [query, setQuery] = useState("");
-      const [theme, setTheme] = useState("Todos");
-      const [expanded, setExpanded] = useState(null);
-      const [faq, setFaq] = useState(null);
-      const [track, setTrack] = useState(0);
-      const [playing, setPlaying] = useState(false);
-      const [progress, setProgress] = useState(0);
-      const [audioError, setAudioError] = useState("");
-      const [showBudget, setShowBudget] = useState(false);
-      const [showCart, setShowCart] = useState(false);
-      const [checkout, setCheckout] = useState({nome:"",whatsapp:"",email:""});
-      const [budget, setBudget] = useState({instituicao:"",cidade:"",data:"",alunos:"",tipo:"Escola"});
-      const [schedule, setSchedule] = useState({nome:"",whatsapp:"",ideia:"",pacote:"Pacote 1 — Mentoria"});
-      const [contact, setContact] = useState({nome:"",email:"",assunto:"Quero conhecer a Casa do Escritor",mensagem:""});
-      const [errors, setErrors] = useState({});
-      const [busy, setBusy] = useState(false);
-      const [notice, setNotice] = useState("");
-      const [checkoutDone, setCheckoutDone] = useState(false);
-      const [budgetDone, setBudgetDone] = useState(false);
-      const [scheduleDone, setScheduleDone] = useState(false);
-      const [contactDone, setContactDone] = useState(false);
-      const [novelAnswers, setNovelAnswers] = useState({ narrator: "", metaphor: "", fragmentation: "", gap: "", mirror: "" });
-      const [sonnetLines, setSonnetLines] = useState(() => {
-  const empty = Array(14).fill("");
-  empty[0] = "Oh! flor do céu! oh! flor cândida e pura!";
-  empty[13] = "Perde-se a vida, ganha-se a batalha!";
-  return empty;
-});
-const [showSonnetPreview, setShowSonnetPreview] = useState(false);
-      const audioRef = useRef(null);
-
-      const cartItems = useMemo(() => PRODUCTS.filter(p => cart[p.id]).map(p => ({...p, qty: cart[p.id]})), [cart]);
-      const total = cartItems.reduce((s,p) => s + p.price * p.qty, 0);
-      const count = cartItems.reduce((s,p) => s + p.qty, 0);
-      const filteredProducts = PRODUCTS.filter(p => cat === "Todos" || p.category === cat);
-      const filteredSonnets = SONNETS.filter(s => (theme === "Todos" || s.theme === theme) && (query.trim() === "" || (s.title + " " + s.excerpt + " " + s.theme).toLowerCase().includes(query.toLowerCase())));
-
-      // Player: busca o arquivo pelo campo "file"
-      useEffect(() => {
-        const a = audioRef.current;
-        if (!a) return;
-        setAudioError("");
-        a.src = `./audio/${TRACKS[track].file}.mp3`;
-        a.load();
-        if (playing) a.play().catch(() => { setPlaying(false); setAudioError("Não foi possível reproduzir esta faixa. Verifique se o arquivo existe em /audio/."); });
-      }, [track]);
-
-      useEffect(() => {
-        const a = audioRef.current;
-        if (!a) return;
-        if (playing) a.play().catch(() => { setPlaying(false); setAudioError("Não foi possível reproduzir. Arquivo ausente?"); });
-        else a.pause();
-      }, [playing]);
-
-      function add(id) { setCart(c => ({...c, [id]: (c[id] || 0) + 1})); setNotice("Item adicionado."); setTimeout(() => setNotice(""), 2000); }
-      function changeQty(id, delta) { setCart(c => { const n = {...c}; const v = (n[id] || 0) + delta; if (v <= 0) delete n[id]; else n[id] = v; return n; }); }
-
-      function validate(obj, fields) {
-        const e = {};
-        fields.forEach(f => { if (!obj[f] || String(obj[f]).trim() === "") e[f] = "Preencha este campo."; });
-        if (obj.email && !/^\S+@\S+\.\S+$/.test(obj.email)) e.email = "E-mail inválido.";
-        if (obj.whatsapp && obj.whatsapp.replace(/\D/g,"").length < 10) e.whatsapp = "WhatsApp com DDD.";
-        setErrors(e);
-        return Object.keys(e).length === 0;
-      }
-
-      async function submitCheckout() {
-        if (!validate(checkout, ["nome","whatsapp","email"]) || cartItems.length === 0) return;
-        setBusy(true);
-        try { await saveRecord("pedidos", {...checkout, itens: cartItems.map(i => `${i.qty}x ${i.name}`).join(" | "), total: money(total)}); setCheckoutDone(true); }
-        catch(e) { setNotice(e.message); }
-        setBusy(false);
-      }
-      async function submitBudget() {
-        if (!validate(budget, ["instituicao","cidade","data","alunos"])) return;
-        setBusy(true);
-        try { await saveRecord("orcamentos", budget); setBudgetDone(true); }
-        catch(e) { setNotice(e.message); }
-        setBusy(false);
-      }
-      async function submitSchedule() {
-        if (!validate(schedule, ["nome","whatsapp","ideia"])) return;
-        setBusy(true);
-        try { await saveRecord("agendamentos", schedule); setScheduleDone(true); }
-        catch(e) { setNotice(e.message); }
-        setBusy(false);
-      }
-      async function submitContact() {
-        if (!validate(contact, ["nome","email","mensagem"])) return;
-        setBusy(true);
-        try { await saveRecord("mensagens", contact); setContactDone(true); setContact({nome:"",email:"",assunto:"Quero conhecer a Casa do Escritor",mensagem:""}); }
-        catch(e) { setNotice(e.message); }
-        setBusy(false);
-      }
-
-      const checkoutMsg = `Olá, Erigutemberg! Quero finalizar meu pedido:\n${cartItems.map(i => `• ${i.qty}x ${i.name} — ${money(i.price*i.qty)}`).join("\n")}\nTotal: ${money(total)}\nNome: ${checkout.nome}\nWhatsApp: ${checkout.whatsapp}\nE-mail: ${checkout.email}`;
-      const budgetMsg = `Olá! Sou de ${budget.instituicao}, em ${budget.cidade}. Quero um evento ${budget.tipo} em ${budget.data} para ${budget.alunos} alunos. Pode enviar orçamento?`;
-      const scheduleMsg = `Olá! Quero agendar conversa gratuita. Nome: ${schedule.nome}. Ideia: ${schedule.ideia}. Pacote: ${schedule.pacote}.`;
-
-      const field = (label, value, onChange, key, placeholder, type="text") => (
-        React.createElement("label", { className: "block text-left" },
-          React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, label),
-          React.createElement("input", { type, value, onChange: e => onChange(e.target.value), placeholder, className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm outline-none focus:border-[#C9A227]" }),
-          errors[key] && React.createElement("span", { className: "mt-1 block text-xs font-semibold text-red-700" }, errors[key])
-        )
-      );
-
-      return (
-        React.createElement("div", { style: { minHeight: "100vh", background: "#F5F1E6" }, className: "overflow-x-clip text-[#1A1E2E]" },
-          React.createElement("audio", {
-            ref: audioRef,
-            onTimeUpdate: (e) => { const a = e.currentTarget; if (a.duration) setProgress((a.currentTime/a.duration)*100); },
-            onEnded: () => { setTrack(t => (t+1) % TRACKS.length); setProgress(0); },
-            onError: () => setAudioError("Arquivo de áudio não encontrado em /audio/. Verifique o nome exato do MP3."),
-          }),
-
-          // TOP
-          React.createElement("div", { className: "bg-[#C9A227] px-4 py-2 text-center text-sm font-bold text-[#1A1E2E]" },
-            React.createElement("a", { href: "https://www.recantodasletras.com.br/autores/erigutembergmeneses", target: "_blank", rel: "noopener" }, "Recanto das Letras — Mais de 2.000 sonetos publicados →")
-          ),
-
-          // HEADER
-          React.createElement("header", { className: "sticky top-0 z-40 border-b border-[#C9A227]/30 bg-[#1A1E2E] text-[#F5F1E6]" },
-            React.createElement("div", { className: "mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6" },
-              React.createElement("a", { href: "#inicio", className: "flex items-center gap-3" },
-                React.createElement("span", { className: "grid h-10 w-10 place-items-center rounded-full border border-[#C9A227] font-serif-display text-xl text-[#C9A227]" }, "E"),
-                React.createElement("span", { className: "leading-none" },
-                  React.createElement("b", { className: "font-serif-display block text-[17px] sm:text-lg" }, "Casa do Escritor"),
-                  React.createElement("small", { className: "text-[11px] tracking-widest text-[#C9A227]" }, "ERIGUTEMBURG MENESES")
-                )
-              ),
-              React.createElement("nav", { className: "hidden items-center gap-5 text-sm font-medium lg:flex" },
-                ["Início:#inicio","Loja:#loja","Casa:#casa","Autor:#autor","Acervo:#acervo","Contato:#contato"].map(l => {
-                  const [t, h] = l.split(":");
-                  return React.createElement("a", { key: t, href: h, className: "hover:text-[#C9A227]" }, t);
-                })
-              ),
-              React.createElement("div", { className: "flex items-center gap-2" },
-                React.createElement("button", { onClick: () => setShowCart(true), className: "relative flex items-center gap-2 rounded-full bg-[#C9A227] px-3 py-2 text-sm font-bold text-[#1A1E2E]" },
-                  React.createElement(ShoppingBag, { size: 18 }),
-                  React.createElement("span", { className: "hidden sm:inline" }, "Carrinho"),
-                  count > 0 && React.createElement("span", { className: "absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-white px-1 text-xs" }, count)
-                ),
-                React.createElement("button", { onClick: () => setMobile(!mobile), className: "rounded-full border border-white/20 p-2 lg:hidden" },
-                  mobile ? React.createElement(X, { size: 20 }) : React.createElement(Menu, { size: 20 })
-                )
-              )
-            ),
-            mobile && React.createElement("nav", { className: "grid gap-2 border-t border-white/10 px-4 py-3 text-sm lg:hidden" },
-              ["Início:#inicio","Loja:#loja","Casa:#casa","Autor:#autor","Acervo:#acervo","Contato:#contato"].map(l => {
-                const [t, h] = l.split(":");
-                return React.createElement("a", { key: t, href: h, onClick: () => setMobile(false) }, t);
-              })
-            )
-          ),
-
-          notice && React.createElement("div", { className: "mx-auto mt-3 max-w-7xl px-4" },
-            React.createElement("div", { className: "rounded-xl bg-[#1A1E2E] px-4 py-3 text-sm text-[#F5F1E6]" }, "✓ " + notice)
-          ),
-
-          React.createElement("main", null,
-            // HERO + PLAYER
-            React.createElement("section", { id: "inicio", className: "bg-[#1A1E2E] text-[#F5F1E6]" },
-              React.createElement("div", { className: "texture mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-20" },
-                React.createElement("div", null,
-                  React.createElement("p", { className: "inline-flex items-center gap-2 rounded-full border border-[#C9A227]/50 px-3 py-1 text-xs font-bold tracking-widest text-[#C9A227]" },
-                    React.createElement(Feather, { size: 14 }), " ADVOGADO • ECONOMISTA • AUTOR"
-                  ),
-                  React.createElement("h1", { className: "font-serif-display mt-6 text-5xl font-bold leading-none sm:text-6xl" },
-                    "Sua ideia merece virar livro. ", React.createElement("span", { className: "italic text-[#C9A227]" }, "Eu escrevo com você.")
-                  ),
-                  React.createElement("p", { className: "mt-5 max-w-xl text-base leading-relaxed text-[#D8D2C0] sm:text-lg" },
-                    "Erigutemberg Meneses transforma memória, conhecimento e história de vida em livros com alma. Mais de 2.000 sonetos publicados, artigos no Brasil e no exterior e poesia que virou música."
-                  ),
-                  React.createElement("div", { className: "mt-7 flex flex-wrap gap-3" },
-                    React.createElement("a", { href: "#autor", className: "rounded-full bg-[#C9A227] px-6 py-3.5 font-bold text-[#1A1E2E]" }, "Quero ser Autor →"),
-                    React.createElement("a", { href: "#loja", className: "rounded-full border border-[#F5F1E6]/40 px-6 py-3.5 font-bold" }, "Ver livros")
-                  ),
-                  React.createElement("div", { className: "mt-9 grid grid-cols-3 gap-3 sm:gap-5" },
-                    [["2.000+","sonetos"],["6","faixas"],["3","caminhos"]].map(([n,l]) =>
-                      React.createElement("div", { key: n },
-                        React.createElement("b", { className: "font-serif-display text-2xl text-[#C9A227] sm:text-4xl" }, n),
-                        React.createElement("p", { className: "mt-1 text-xs text-[#C9C4B5] sm:text-sm" }, l)
-                      )
-                    )
-                  )
-                ),
-                React.createElement("article", { className: "overflow-hidden rounded-3xl border border-[#C9A227]/40 bg-[#232838] shadow-2xl" },
-                  React.createElement("div", { className: "flex items-center justify-between bg-[#C9A227] px-5 py-3 text-[#1A1E2E]" },
-                    React.createElement("span", { className: "flex items-center gap-2 text-sm font-black" }, React.createElement(Music2, { size: 18 }), " EM DESTAQUE"),
-                    React.createElement("span", { className: "text-xs font-bold" }, "ÁLBUM SONETOM")
-                  ),
-                  React.createElement("div", { className: "p-5" },
-                    React.createElement("p", { className: "font-serif-display text-3xl font-bold leading-tight" }, "Poesia que", React.createElement("br"), "Virou Rock"),
-                    React.createElement("p", { className: "mt-2 text-sm text-[#C8C2B2]" }, "Ouça as faixas do álbum direto no site."),
-                    React.createElement("div", { className: "mt-5 flex items-center gap-4" },
-                      React.createElement("button", { onClick: () => setPlaying(!playing), className: "grid h-14 w-14 place-items-center rounded-full bg-[#C9A227] text-[#1A1E2E]" },
-                        playing ? React.createElement(Pause) : React.createElement(Play, { className: "ml-1" })
-                      ),
-                      React.createElement("div", { className: "min-w-0" },
-                        React.createElement("p", { className: "text-xs tracking-widest text-[#C9A227]" }, "FAIXA " + (track + 1)),
-                        React.createElement("p", { className: "font-serif-display truncate text-xl font-bold" }, TRACKS[track].name)
-                      )
-                    ),
-                    React.createElement("div", { className: "mt-4" },
-                      React.createElement("div", { className: "h-2 overflow-hidden rounded-full bg-white/15" },
-                        React.createElement("div", { className: "h-full bg-[#C9A227] transition-all", style: { width: progress + "%" } })
-                      )
-                    ),
-                    audioError && React.createElement("p", { className: "mt-3 rounded-lg bg-red-900/40 px-3 py-2 text-xs text-red-200" }, "⚠️ " + audioError),
-                    React.createElement("div", { className: "mt-4 max-h-56 overflow-y-auto pr-1 no-scrollbar" },
-                      TRACKS.map((t, i) =>
-                        React.createElement("button", { key: t.file, onClick: () => { setTrack(i); setProgress(0); }, className: `flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm ${i === track ? "bg-[#C9A227] font-bold text-[#1A1E2E]" : "hover:bg-white/10"}` },
-                          React.createElement("span", { className: "truncate" }, String(i + 1).padStart(2, "0") + " • " + t.name),
-                          i === track ? React.createElement(AudioLines, { size: 16 }) : React.createElement(Play, { size: 14 })
-                        )
-                      )
-                    ),
-                    React.createElement("a", { href: "#loja", className: "mt-4 flex items-center justify-center gap-2 rounded-xl bg-[#F5F1E6] py-3 text-sm font-bold text-[#1A1E2E]" },
-                      "Quero o álbum digital • R$ 39,90 ", React.createElement(ArrowRight, { size: 16 })
-                    )
-                  )
-                )
-              )
-            ),
-
-            // ONDE ME ENCONTRAR
-            React.createElement("section", { className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
-              React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "ONDE ME ENCONTRAR"),
-              React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Fontes verificadas."),
-              React.createElement("div", { className: "mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" },
-                CATALOG.map(p =>
-                  React.createElement("article", { key: p.href, className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
-                    React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, p.label),
-                    React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" },
-                      React.createElement("a", { href: p.href, target: "_blank", rel: "noopener", className: "underline decoration-[#C9A227] underline-offset-4 hover:text-[#A68A1F]" }, p.name)
-                    ),
-                    React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, p.desc),
-                    React.createElement("a", { href: p.href, target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Abrir →")
-                  )
-                ),
-                React.createElement("article", { className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
-                  React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, "Internet Archive"),
-                  React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" }, "Buscar obras do autor"),
-                  React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Álbuns, livros e sonetos musicados"),
-                  React.createElement("a", { href: "https://archive.org/search?query=creator%3A%22Erigutemberg+Meneses%22", target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Buscar →")
-                ),
-                React.createElement("article", { className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
-                  React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, "SSRN"),
-                  React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" },
-                    React.createElement("a", { href: "https://dx.doi.org/10.2139/ssrn.5879522", target: "_blank", rel: "noopener", className: "underline decoration-[#C9A227] underline-offset-4" }, "Neurocompatible Justice (SSRN)")
-                  ),
-                  React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "DOI 10.2139/ssrn.5879522"),
-                  React.createElement("a", { href: "https://dx.doi.org/10.2139/ssrn.5879522", target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Abrir →")
-                ),
-                React.createElement("article", { className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6 shadow-sm" },
-                  React.createElement("span", { className: "w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, "YouTube"),
-                  React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold leading-tight" },
-                    React.createElement("a", { href: "https://www.youtube.com/@ErigutembergMeneses", target: "_blank", rel: "noopener", className: "underline decoration-[#C9A227] underline-offset-4" }, "Canal oficial no YouTube")
-                  ),
-                  React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Sonetos musicados"),
-                  React.createElement("a", { href: "https://www.youtube.com/@ErigutembergMeneses", target: "_blank", rel: "noopener", className: "mt-4 self-start rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Abrir →")
-                )
-              )
-            ),
-
-            // LOJA
-            React.createElement("section", { id: "loja", className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
-              React.createElement("div", { className: "flex flex-wrap items-end justify-between gap-4" },
-                React.createElement("div", null,
-                  React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "LOJA DA CASA"),
-                  React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Obras do autor", React.createElement("br"), "para todos os leitores")
-                ),
-                React.createElement("p", { className: "max-w-sm text-sm text-[#6B675A]" }, "Escolha, monte seu carrinho e finalize pelo WhatsApp.")
-              ),
-              React.createElement("div", { className: "mt-7 flex flex-wrap gap-2" },
-                CATS.map(c => React.createElement("button", { key: c, onClick: () => setCat(c), className: `rounded-full border px-4 py-2 text-sm font-semibold ${cat === c ? "bg-[#1A1E2E] text-white border-[#1A1E2E]" : "border-[#D9D1BB] bg-white"}` }, c))
-              ),
-              React.createElement("div", { className: "mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" },
-                filteredProducts.map(p =>
-                  React.createElement("article", { key: p.id, className: "overflow-hidden rounded-3xl border border-[#E0D9C6] bg-white shadow-sm" },
-                    React.createElement("div", { className: `relative flex h-48 items-end p-5 ${p.coverClass}` },
-                      React.createElement("span", { className: "absolute right-4 top-4 rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-black text-[#1A1E2E]" }, p.tag),
-                      React.createElement("div", null,
-                        React.createElement("p", { className: "text-[11px] tracking-widest text-[#C9A227]" }, "ERIGUTEMBURG MENESES"),
-                        React.createElement("p", { className: "font-serif-display text-2xl font-bold leading-tight text-white" }, p.cover)
-                      )
-                    ),
-                    React.createElement("div", { className: "p-5" },
-                      React.createElement("p", { className: "text-xs font-bold uppercase tracking-widest text-[#A68A1F]" }, p.category),
-                      React.createElement("h3", { className: "font-serif-display mt-1 text-xl font-bold" }, p.name),
-                      React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, p.desc),
-                      React.createElement("div", { className: "mt-4 flex items-center justify-between" },
-  React.createElement("b", { className: "font-serif-display text-2xl" }, money(p.price)),
-  React.createElement("a", { 
-    href: p.link, 
-    target: "_blank", 
-    rel: "noopener", 
-    className: "flex items-center gap-2 rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" 
-  }, "Comprar ", React.createElement(ArrowRight, { size: 16 }))
-)
-                    )
-                  )
-                )
-              )
-            ),
-
-            // AUTOR
-            React.createElement("section", { id: "autor", className: "bg-[#1A1E2E] py-14 text-[#F5F1E6] sm:py-20" },
-              React.createElement("div", { className: "mx-auto max-w-7xl px-4 sm:px-6" },
-                React.createElement("p", { className: "text-center text-xs font-black tracking-widest text-[#C9A227]" }, "QUERO SER AUTOR"),
-                React.createElement("h2", { className: "font-serif-display mx-auto mt-3 max-w-3xl text-center text-4xl font-bold sm:text-5xl" }, "Três caminhos. Um livro com o seu nome."),
-                React.createElement("div", { className: "mt-10 grid gap-5 lg:grid-cols-3" },
-                  [
-                    {n:"Pacote 1",t:"Do Rascunho ao Livro",s:"Mentoria",price:"R$ 2.500 a R$ 5.000",items:["8 encontros individuais","Estrutura completa","Revisão capítulo a capítulo","Plano de escrita semanal"],res:"Manuscrito estruturado.",hot:false},
-                    {n:"Pacote 2",t:"Sua História, Meu Texto",s:"Ghostwriting",price:"R$ 8.000 a R$ 25.000",items:["Entrevistas guiadas","Escrita completa","Revisões por capítulo","Acompanhamento final"],res:"Livro pronto com sua voz.",hot:true},
-                    {n:"Pacote 3",t:"Livro Institucional",s:"Marcas",price:"A partir de R$ 15.000",items:["Pesquisa com a equipe","Narrativa institucional","Curadoria de fotos","Edição de legado"],res:"Obra que registra sua instituição.",hot:false}
-                  ].map(pkg =>
-                    React.createElement("article", { key: pkg.n, className: `relative rounded-3xl p-6 ${pkg.hot ? "bg-[#C9A227] text-[#1A1E2E] shadow-2xl lg:-translate-y-2" : "border border-white/15 bg-[#232838]"}` },
-                      pkg.hot && React.createElement("span", { className: "absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-xs font-black" }, "★ MAIS PROCURADO"),
-                      React.createElement("p", { className: "text-xs font-black tracking-widest" }, pkg.n + " • " + pkg.s.toUpperCase()),
-                      React.createElement("h3", { className: "font-serif-display mt-3 text-2xl font-bold leading-tight" }, pkg.t),
-                      React.createElement("p", { className: "font-serif-display mt-3 text-3xl font-bold" }, pkg.price),
-                      React.createElement("ul", { className: "mt-5 space-y-2.5 text-sm" },
-                        pkg.items.map(i => React.createElement("li", { key: i, className: "flex gap-2" }, React.createElement(Check, { size: 17, className: "mt-0.5 shrink-0" }), " " + i))
-                      ),
-                      React.createElement("p", { className: "mt-5 rounded-xl bg-black/10 p-3 text-sm" }, React.createElement("b", null, "Resultado:"), " " + pkg.res),
-                      React.createElement("a", { href: waLink(`Olá! Tenho interesse no ${pkg.n} — ${pkg.t}.`), target: "_blank", rel: "noopener", className: `mt-5 flex items-center justify-center gap-2 rounded-full py-3 text-sm font-bold ${pkg.hot ? "bg-[#1A1E2E] text-white" : "bg-[#F5F1E6] text-[#1A1E2E]"}` },
-                        React.createElement(MessageCircle, { size: 17 }), " WhatsApp"
-                      )
-                    )
-                  )
-                ),
-                React.createElement("div", { className: "mt-14 grid gap-8 lg:grid-cols-2" },
-                  React.createElement("div", null,
-                    React.createElement("h3", { className: "font-serif-display text-3xl font-bold" }, "Perguntas frequentes"),
-                    React.createElement("div", { className: "mt-5 space-y-3" },
-                      [
-                        {q:"Preciso saber escrever bem?",a:"Não. Começamos da sua ideia e da sua história."},
-                        {q:"Quanto tempo leva?",a:"Depende do pacote. Mentoria tem 8 encontros; ghostwriting tem cronograma por capítulos."},
-                        {q:"Meu nome aparece como autor?",a:"Sim. Você é o autor. A escrita é feita em parceria."},
-                        {q:"Posso parcelar?",a:"Sim, conversamos na conversa gratuita de 20 minutos."}
-                      ].map((f, i) =>
-                        React.createElement("div", { key: f.q, className: "overflow-hidden rounded-2xl border border-white/15" },
-                          React.createElement("button", { onClick: () => setFaq(faq === i ? null : i), className: "flex w-full items-center justify-between px-4 py-4 text-left font-bold" },
-                            f.q, React.createElement(ChevronDown, { className: `transition ${faq === i ? "rotate-180" : ""}`, size: 18 })
-                          ),
-                          faq === i && React.createElement("p", { className: "px-4 pb-4 text-sm leading-relaxed text-[#C8C2B2]" }, f.a)
-                        )
-                      )
-                    )
-                  ),
-                  React.createElement("div", { className: "rounded-3xl bg-[#F5F1E6] p-6 text-[#1A1E2E] sm:p-7" },
-                    React.createElement("p", { className: "flex items-center gap-2 text-xs font-black tracking-widest text-[#A68A1F]" }, React.createElement(Clock, { size: 15 }), " CONVERSA GRATUITA"),
-                    React.createElement("h3", { className: "font-serif-display mt-2 text-3xl font-bold" }, "Agende sua conversa"),
-                    scheduleDone ?
-                      React.createElement("div", { className: "mt-5 rounded-2xl bg-emerald-50 p-5" },
-                        React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Registrado!"),
-                        React.createElement("a", { href: waLink(scheduleMsg), target: "_blank", rel: "noopener", className: "mt-4 flex justify-center gap-2 rounded-full bg-[#1A1E2E] py-3 text-sm font-bold text-white" }, React.createElement(MessageCircle, { size: 17 }), " Abrir WhatsApp"),
-                        React.createElement("button", { onClick: () => setScheduleDone(false), className: "mt-2 w-full text-sm font-bold underline" }, "Fazer outro")
-                      ) :
-                      React.createElement("div", { className: "mt-5 grid gap-4" },
-                        field("Seu nome", schedule.nome, v => setSchedule({...schedule, nome: v}), "nome", "Nome"),
-                        field("WhatsApp", schedule.whatsapp, v => setSchedule({...schedule, whatsapp: v}), "whatsapp", "(98) 99999-0000"),
-                        React.createElement("label", { className: "block" },
-                          React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, "Ideia do livro"),
-                          React.createElement("textarea", { value: schedule.ideia, onChange: e => setSchedule({...schedule, ideia: e.target.value}), rows: 3, className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm" }),
-                          errors.ideia && React.createElement("span", { className: "text-xs font-semibold text-red-700" }, errors.ideia)
-                        ),
-                        React.createElement("button", { disabled: busy, onClick: submitSchedule, className: "rounded-full bg-[#C9A227] py-3.5 font-bold disabled:opacity-60" }, busy ? "Salvando..." : "Agendar conversa gratuita")
-                      )
-                  )
-                )
-              )
-            ),
-// OFICINA DE SONETO
-React.createElement("section", { id: "oficina", className: "bg-[#EDE6D3] py-14 sm:py-20" },
-  React.createElement("div", { className: "mx-auto max-w-5xl px-4 sm:px-6" },
-    React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "OFICINA DE SONETO"),
-    React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "O método de Machado de Assis", React.createElement("br"), "para fazer um soneto."),
-    React.createElement("p", { className: "mt-4 max-w-3xl leading-relaxed text-[#57534A]" },
-      "No capítulo LV de Dom Casmurro, Bentinho conta como tentou escrever um soneto. O método dele é simples e genial: partir de dois versos já prontos — o primeiro e o último — e preencher o meio. É o exercício que a Casa do Escritor propõe a você agora."
-    ),
-
-    // CARD DO MÉTODO
-    React.createElement("div", { className: "mt-8 grid gap-5 md:grid-cols-3" },
-      [
-        { n: "01", t: "A centelha", d: "Escolha o primeiro verso. Ele deve ter a medida certa (decassílabo) e conter uma imagem forte." },
-        { n: "02", t: "A chave de ouro", d: "Forje o último verso. Ele resume e conclui a ideia com força — é o fecho que dá sentido ao poema." },
-        { n: "03", t: "O preenchimento", d: "Ligue os dois polos com os 12 versos centrais, mantendo métrica, rimas e coerência de ideia." }
-      ].map(x =>
-        React.createElement("article", { key: x.n, className: "rounded-3xl bg-white p-5 shadow-sm" },
-          React.createElement("p", { className: "font-serif-display text-4xl text-[#E2D8BC]" }, x.n),
-          React.createElement("h3", { className: "font-serif-display mt-3 text-xl font-bold" }, x.t),
-          React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, x.d)
-        )
-      )
-    ),
-
-    // O DESAFIO + EDITOR
-    React.createElement("div", { className: "mt-10 grid gap-6 lg:grid-cols-2" },
-      // COLUNA ESQUERDA — instruções e versos fixos
-      React.createElement("div", { className: "rounded-3xl bg-[#1A1E2E] p-6 text-[#F5F1E6] sm:p-8" },
-        React.createElement("p", { className: "text-xs font-black tracking-widest text-[#C9A227]" }, "O DESAFIO"),
-        React.createElement("h3", { className: "font-serif-display mt-2 text-3xl font-bold" }, "Complete o soneto"),
-        React.createElement("p", { className: "mt-3 text-sm leading-relaxed text-[#C8C2B2]" },
-          "Abaixo, os versos 1 e 14 já estão prontos. Sua tarefa é escrever os 12 versos centrais, respeitando a métrica decassílaba e criando as rimas que ligam a flor à batalha."
-        ),
-        React.createElement("div", { className: "mt-6 space-y-4" },
-          React.createElement("div", null,
-            React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#C9A227]" }, "VERSO 1 — ABERTURA (fixo)"),
-            React.createElement("p", { className: "font-serif-display mt-1 text-lg italic" }, "“Oh! flor do céu! oh! flor cândida e pura!”")
-          ),
-          React.createElement("div", null,
-            React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#C9A227]" }, "VERSO 14 — CHAVE DE OURO (fixo)"),
-            React.createElement("p", { className: "font-serif-display mt-1 text-lg italic" }, "“Perde-se a vida, ganha-se a batalha!”")
-          )
-        ),
-        React.createElement("div", { className: "mt-6 rounded-2xl bg-white/5 p-4" },
-          React.createElement("p", { className: "text-xs font-bold text-[#C9A227]" }, "ESQUEMA DE RIMAS SUGERIDO"),
-          React.createElement("p", { className: "mt-1 text-sm text-[#C8C2B2]" },
-            "Quadra 1: A B B A • Quadra 2: C D D C • Terceto 1: E F E • Terceto 2: F G B"
-          )
-        )
-      ),
-
-      // COLUNA DIREITA — editor dos 14 versos
-      React.createElement("div", { className: "rounded-3xl bg-white p-6 shadow-sm sm:p-8" },
-        React.createElement("div", { className: "flex items-center justify-between" },
-          React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Seu soneto"),
-          React.createElement("span", { className: "rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" },
-            (sonnetLines.filter(Boolean).length) + "/14 versos"
-          )
-        ),
-        React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Preencha os versos centrais. Os versos 1 e 14 já vêm prontos."),
-        React.createElement("div", { className: "mt-4 grid gap-2" },
-          Array.from({ length: 14 }).map((_, i) => {
-            const isFixed = (i === 0 || i === 13);
-            return React.createElement("label", { key: i, className: "block" },
-              React.createElement("span", { className: "text-[10px] font-bold uppercase tracking-widest text-[#6B675A]" },
-                "Verso " + (i + 1) + (isFixed ? " (fixo)" : "")
-              ),
-              React.createElement("input", {
-                type: "text",
-                value: sonnetLines[i] || "",
-                readOnly: isFixed,
-                onChange: (e) => {
-                  const next = [...sonnetLines];
-                  next[i] = e.target.value;
-                  setSonnetLines(next);
-                },
-                placeholder: isFixed ? "" : "Escreva o verso decassílabo...",
-                className: "mt-1 w-full rounded-xl border px-3 py-2 text-sm " + (isFixed ? "border-[#C9A227] bg-[#F5F1E6] font-serif-display italic" : "border-[#D9D1BB] bg-white focus:border-[#C9A227]")
-              })
-            );
-          })
-        ),
-        React.createElement("div", { className: "mt-5 flex flex-wrap gap-2" },
-          React.createElement("button", {
-            onClick: () => setShowSonnetPreview(!showSonnetPreview),
-            className: "rounded-full bg-[#1A1E2E] px-5 py-2.5 text-sm font-bold text-white"
-          }, showSonnetPreview ? "Ocultar prévia" : "Ver meu soneto"),
-          React.createElement("button", {
-            onClick: () => {
-              const filled = sonnetLines.filter(Boolean).length;
-              const msg = "Olá, Erigutemberg! Completei o desafio da Oficina de Soneto:\n\n" + sonnetLines.map((l, i) => (i + 1) + ". " + (l || "____________________")).join("\n");
-              window.open(waLink(msg), "_blank");
-            },
-            className: "flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-black text-[#06281A]"
-          }, React.createElement(MessageCircle, { size: 16 }), " Enviar para o autor"),
-          React.createElement("button", {
-            onClick: () => {
-              const empty = Array(14).fill("");
-              empty[0] = "Oh! flor do céu! oh! flor cândida e pura!";
-              empty[13] = "Perde-se a vida, ganha-se a batalha!";
-              setSonnetLines(empty);
-              setShowSonnetPreview(false);
-            },
-            className: "rounded-full border border-[#D9D1BB] px-5 py-2.5 text-sm font-bold"
-          }, "Limpar")
-        ),
-        showSonnetPreview && React.createElement("div", { className: "mt-5 rounded-2xl bg-[#FFFDF6] p-5" },
-          React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#A68A1F]" }, "PRÉVIA DO SEU SONETO"),
-          React.createElement("div", { className: "mt-3 space-y-1 font-serif-display text-[15px] italic leading-relaxed text-[#57534A]" },
-            sonnetLines.map((l, i) =>
-              React.createElement("p", { key: i }, (i + 1) + ". " + (l || "____________________"))
-            )
-          )
-        )
-      )
-    )
-  )
-),
-                              // OFICINA DE ROMANCE
-React.createElement("section", { id: "oficina-romance", className: "bg-[#EDE6D3] py-14 sm:py-20" },
-  React.createElement("div", { className: "mx-auto max-w-5xl px-4 sm:px-6" },
-    React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "OFICINA DE ROMANCE"),
-    React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "O método de Machado de Assis", React.createElement("br"), "para escrever um romance."),
-    React.createElement("p", { className: "mt-4 max-w-3xl leading-relaxed text-[#57534A]" },
-      "Em Dom Casmurro, Machado não conta apenas uma história: ele constrói uma armadilha narrativa. O leitor nunca sabe se Capitu traiu ou não, porque o narrador é o próprio réu. A seguir, os 5 passos que tornam essa engrenagem possível — e um exercício para você aplicar ao seu próprio romance."
-    ),
-
-    // 5 PASSOS
-    React.createElement("div", { className: "mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-5" },
-      [
-        { n: "01", t: "Narrador não confiável", d: "Defina o interesse oculto do narrador. O que ele ganha ao contar a história? O que ele esconde de si mesmo?" },
-        { n: "02", t: "Metáfora central", d: "Escolha uma imagem física ou ação concreta que simbolize o conflito do livro. Em Dom Casmurro, é a casa e o ato de 'atar as pontas'." },
-        { n: "03", t: "Fragmentar a linearidade", d: "Siga o fluxo da memória, não a cronologia. Permita digressões, idas e voltas, comentários sobre o próprio ato de escrever." },
-        { n: "04", t: "Lacunas e pistas falsas", d: "Deixe ambiguidades deliberadas. O que é fato? O que é interpretação do narrador? A verdade não está no texto — está na suspeita." },
-        { n: "05", t: "Intertextualidade como espelho", d: "Escolha uma obra ou arquétipo anterior que dialogue com a sua história. Use-o para dar profundidade e ironia." }
-      ].map(x =>
-        React.createElement("article", { key: x.n, className: "rounded-3xl bg-white p-5 shadow-sm" },
-          React.createElement("p", { className: "font-serif-display text-4xl text-[#E2D8BC]" }, x.n),
-          React.createElement("h3", { className: "font-serif-display mt-3 text-lg font-bold leading-tight" }, x.t),
-          React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, x.d)
-        )
-      )
-    ),
-
-    // EXERCÍCIO INTERATIVO
-    React.createElement("div", { className: "mt-10 grid gap-6 lg:grid-cols-2" },
-      // COLUNA ESQUERDA — instruções
-      React.createElement("div", { className: "rounded-3xl bg-[#1A1E2E] p-6 text-[#F5F1E6] sm:p-8" },
-        React.createElement("p", { className: "text-xs font-black tracking-widest text-[#C9A227]" }, "O DESAFIO"),
-        React.createElement("h3", { className: "font-serif-display mt-2 text-3xl font-bold" }, "A espinha dorsal do seu romance"),
-        React.createElement("p", { className: "mt-3 text-sm leading-relaxed text-[#C8C2B2]" },
-          "Antes de escrever a primeira página, responda às 5 perguntas abaixo. Elas formam o esqueleto do seu romance — o que Machado fez antes de escrever Dom Casmurro."
-        ),
-        React.createElement("div", { className: "mt-6 rounded-2xl bg-white/5 p-4" },
-          React.createElement("p", { className: "text-xs font-bold text-[#C9A227]" }, "EXEMPLO (DOM CASMURRO)"),
-          React.createElement("ul", { className: "mt-2 space-y-1 text-sm text-[#C8C2B2]" },
-            React.createElement("li", null, React.createElement("b", null, "Narrador: "), "Bento Santiago, que quer se absolver do próprio ciúme."),
-            React.createElement("li", null, React.createElement("b", null, "Metáfora: "), "A casa replicada da infância e o ato de 'atar as pontas'."),
-            React.createElement("li", null, React.createElement("b", null, "Fragmentação: "), "Memória não linear, digressões, capítulos curtos."),
-            React.createElement("li", null, React.createElement("b", null, "Lacuna: "), "Capitu traiu ou não? Nunca resolvido."),
-            React.createElement("li", null, React.createElement("b", null, "Espelho: "), "Otelo, de Shakespeare — ciúme e manipulação.")
-          )
-        ),
-        React.createElement("button", {
-          onClick: () => {
-            const msg = "Olá, Erigutemberg! Preenchi a espinha dorsal do meu romance na Oficina de Romance:\n\n" +
-              "1. Narrador: " + (novelAnswers.narrator || "—") + "\n" +
-              "2. Metáfora central: " + (novelAnswers.metaphor || "—") + "\n" +
-              "3. Fragmentação: " + (novelAnswers.fragmentation || "—") + "\n" +
-              "4. Lacuna: " + (novelAnswers.gap || "—") + "\n" +
-              "5. Espelho: " + (novelAnswers.mirror || "—");
-            window.open(waLink(msg), "_blank");
-          },
-          className: "mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-black text-[#06281A]"
-        }, React.createElement(MessageCircle, { size: 16 }), " Enviar para o autor")
-      ),
-
-      // COLUNA DIREITA — formulário
-      React.createElement("div", { className: "rounded-3xl bg-white p-6 shadow-sm sm:p-8" },
-        React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Meu romance"),
-        React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, "Responda com uma frase curta cada. Você pode editar depois."),
-        React.createElement("div", { className: "mt-4 grid gap-4" },
-          // 5 campos
-          [
-            { k: "narrator", label: "1. Narrador — qual é o interesse oculto dele?", ph: "Ex.: Quer se absolver de uma culpa antiga..." },
-            { k: "metaphor", label: "2. Metáfora central — que imagem física simboliza o conflito?", ph: "Ex.: Uma casa reconstruída, um rio que seca..." },
-            { k: "fragmentation", label: "3. Fragmentação — como a memória vai embaralhar a cronologia?", ph: "Ex.: Capítulos curtos alternando presente e infância..." },
-            { k: "gap", label: "4. Lacuna — qual é a dúvida que nunca será resolvida?", ph: "Ex.: O filho é ou não do marido?" },
-            { k: "mirror", label: "5. Espelho — que obra ou arquétipo dialoga com sua história?", ph: "Ex.: Otelo, Édipo, Hamlet..." }
-          ].map(f =>
-            React.createElement("label", { key: f.k, className: "block" },
-              React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, f.label),
-              React.createElement("textarea", {
-                rows: 2,
-                value: novelAnswers[f.k] || "",
-                onChange: (e) => setNovelAnswers({ ...novelAnswers, [f.k]: e.target.value }),
-                placeholder: f.ph,
-                className: "mt-1 w-full rounded-xl border border-[#D9D1BB] bg-white px-3 py-2 text-sm outline-none focus:border-[#C9A227]"
-              })
-            )
-          ),
-          // Prévia da "sinopse"
-          React.createElement("div", { className: "mt-2 rounded-2xl bg-[#F5F1E6] p-4" },
-            React.createElement("p", { className: "text-xs font-bold tracking-widest text-[#A68A1F]" }, "PRÉVIA DA ESPINHA DORSAL"),
-            React.createElement("p", { className: "mt-2 font-serif-display text-[15px] italic leading-relaxed text-[#57534A]" },
-              (novelAnswers.narrator || "Um narrador ainda sem nome") + " conta a história de " +
-              (novelAnswers.metaphor ? "um conflito simbolizado por " + novelAnswers.metaphor.toLowerCase() : "um conflito ainda sem metáfora") +
-              ". A narrativa se fragmenta quando " + (novelAnswers.fragmentation ? novelAnswers.fragmentation.toLowerCase() : "a memória embaralha o tempo") +
-              ". No centro, uma dúvida nunca resolvida: " + (novelAnswers.gap ? novelAnswers.gap.toLowerCase() : "o que realmente aconteceu?") +
-              ". Tudo isso ecoa " + (novelAnswers.mirror || "algum arquétipo clássico") + "."
-            )
-          ),
-          React.createElement("button", {
-            onClick: () => setNovelAnswers({ narrator: "", metaphor: "", fragmentation: "", gap: "", mirror: "" }),
-            className: "rounded-full border border-[#D9D1BB] px-5 py-2.5 text-sm font-bold"
-          }, "Limpar")
-        )
-      )
-    )
-  )
-),
-            // ACERVO
-            React.createElement("section", { id: "acervo", className: "mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20" },
-              React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "ACERVO"),
-              React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Encontre o soneto", React.createElement("br"), "que te encontra."),
-              React.createElement("div", { className: "mt-7 flex flex-col gap-3 md:flex-row" },
-                React.createElement("label", { className: "relative flex-1" },
-                  React.createElement(Search, { className: "absolute left-4 top-1/2 -translate-y-1/2 text-[#6B675A]", size: 18 }),
-                  React.createElement("input", { value: query, onChange: e => setQuery(e.target.value), placeholder: "Buscar por título ou tema...", className: "w-full rounded-full border border-[#D9D1BB] bg-white py-3.5 pl-11 pr-4 text-sm" })
-                ),
-                React.createElement("div", { className: "flex flex-wrap gap-2" },
-                  THEMES.map(t => React.createElement("button", { key: t, onClick: () => setTheme(t), className: `rounded-full px-4 py-2 text-sm font-semibold ${theme === t ? "bg-[#1A1E2E] text-white" : "border border-[#D9D1BB] bg-white"}` }, t))
-                )
-              ),
-              React.createElement("p", { className: "mt-4 text-sm font-semibold text-[#6B675A]" }, filteredSonnets.length + " sonetos encontrados"),
-              React.createElement("div", { className: "mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3" },
-                filteredSonnets.map(s =>
-                  React.createElement("article", { key: s.title, className: "flex flex-col rounded-3xl border border-[#E0D9C6] bg-white p-6" },
-                    React.createElement(Quote, { className: "text-[#C9A227]" }),
-                    React.createElement("span", { className: "mt-3 w-fit rounded-full bg-[#F5F1E6] px-3 py-1 text-xs font-bold text-[#A68A1F]" }, s.theme),
-                    React.createElement("h3", { className: "font-serif-display mt-3 text-2xl font-bold leading-tight" }, s.title),
-                    React.createElement("p", { className: "mt-3 flex-1 font-serif-display text-[17px] italic leading-relaxed text-[#57534A]" }, "“" + (expanded === s.title ? s.full : s.excerpt) + "”"),
-                    React.createElement("button", { onClick: () => setExpanded(expanded === s.title ? null : s.title), className: "mt-4 self-start font-bold underline decoration-[#C9A227] underline-offset-4" }, expanded === s.title ? "Ler menos ↑" : "Ler mais →")
-                  )
-                )
-              )
-            ),
-
-            // CONTATO
-            React.createElement("section", { id: "contato", className: "bg-[#F5F1E6] py-14 sm:py-20" },
-              React.createElement("div", { className: "mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2" },
-                React.createElement("div", null,
-                  React.createElement("p", { className: "text-xs font-black tracking-widest text-[#A68A1F]" }, "CONTATO"),
-                  React.createElement("h2", { className: "font-serif-display mt-2 text-4xl font-bold sm:text-5xl" }, "Vamos escrever", React.createElement("br"), "a próxima página?"),
-                  React.createElement("div", { className: "mt-6 space-y-3" },
-                    React.createElement("a", { href: waLink("Olá!"), target: "_blank", rel: "noopener", className: "flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm" },
-                      React.createElement(Phone, { className: "text-[#C9A227]" }),
-                      React.createElement("span", null,
-                        React.createElement("b", { className: "block text-sm" }, "WhatsApp"),
-                        React.createElement("span", { className: "text-sm text-[#6B675A]" }, "(47) 98891-1436")
-                      )
-                    ),
-                    React.createElement("a", { href: "mailto:" + EMAIL, className: "flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm" },
-                      React.createElement(Mail, { className: "text-[#C9A227]" }),
-                      React.createElement("span", null,
-                        React.createElement("b", { className: "block text-sm" }, "E-mail"),
-                        React.createElement("span", { className: "text-sm break-all text-[#6B675A]" }, EMAIL)
-                      )
-                    )
-                  )
-                ),
-                React.createElement("div", { className: "rounded-3xl border border-[#E0D9C6] bg-white p-6 sm:p-7" },
-                  React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Envie uma mensagem"),
-                  contactDone ?
-                    React.createElement("div", { className: "mt-5 rounded-2xl bg-emerald-50 p-5" },
-                      React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Mensagem registrada!"),
-                      React.createElement("button", { onClick: () => setContactDone(false), className: "mt-3 text-sm font-bold underline" }, "Enviar outra")
-                    ) :
-                    React.createElement("div", { className: "mt-5 grid gap-4" },
-                      field("Nome", contact.nome, v => setContact({...contact, nome: v}), "nome", "Seu nome"),
-                      field("E-mail", contact.email, v => setContact({...contact, email: v}), "email", "voce@email.com", "email"),
-                      React.createElement("label", { className: "block" },
-                        React.createElement("span", { className: "text-xs font-bold uppercase tracking-wider text-[#6B675A]" }, "Mensagem"),
-                        React.createElement("textarea", { value: contact.mensagem, onChange: e => setContact({...contact, mensagem: e.target.value}), rows: 4, className: "mt-2 w-full rounded-xl border border-[#D9D1BB] bg-white px-4 py-3 text-sm" }),
-                        errors.mensagem && React.createElement("span", { className: "text-xs font-semibold text-red-700" }, errors.mensagem)
-                      ),
-                      React.createElement("button", { disabled: busy, onClick: submitContact, className: "flex items-center justify-center gap-2 rounded-full bg-[#1A1E2E] py-3.5 font-bold text-white disabled:opacity-60" },
-                        React.createElement(Send, { size: 17 }), busy ? "Salvando..." : "Enviar"
-                      )
-                    )
-                )
-              )
-            )
-          ),
-
-          // FOOTER
-          React.createElement("footer", { className: "bg-[#1A1E2E] px-4 py-10 text-[#C8C2B2] sm:px-6" },
-            React.createElement("div", { className: "mx-auto max-w-7xl text-center" },
-              React.createElement("p", { className: "font-serif-display text-2xl text-[#F5F1E6]" }, "Casa do Escritor"),
-              React.createElement("p", { className: "mt-1 text-xs tracking-widest text-[#C9A227]" }, "ERIGUTEMBURG MENESES"),
-              React.createElement("div", { className: "mt-5 flex flex-wrap justify-center gap-5 text-sm font-semibold text-white" },
-                React.createElement("a", { href: waLink("Olá!"), target: "_blank", rel: "noopener" }, "WhatsApp"),
-                React.createElement("a", { href: "mailto:" + EMAIL }, "E-mail")
-              ),
-              React.createElement("p", { className: "mt-6 text-xs" }, "© " + new Date().getFullYear() + " Casa do Escritor.")
-            )
-          ),
-
-          // CART
-          showCart && React.createElement("div", { className: "fixed inset-0 z-50 flex justify-end bg-black/55" },
-            React.createElement("div", { className: "flex h-full w-full max-w-md flex-col bg-[#FFFDF6] shadow-2xl" },
-              React.createElement("div", { className: "flex items-center justify-between border-b px-5 py-4" },
-                React.createElement("h3", { className: "font-serif-display text-2xl font-bold" }, "Carrinho"),
-                React.createElement("button", { onClick: () => setShowCart(false), className: "rounded-full bg-[#F5F1E6] p-2" }, React.createElement(X))
-              ),
-              React.createElement("div", { className: "flex-1 overflow-y-auto p-5" },
-                cartItems.length === 0 ?
-                  React.createElement("div", { className: "py-14 text-center" },
-                    React.createElement(ShoppingBag, { className: "mx-auto text-[#C9A227]" }),
-                    React.createElement("p", { className: "mt-3 font-bold" }, "Carrinho vazio")
-                  ) :
-                  React.createElement("div", { className: "space-y-4" },
-                    cartItems.map(i =>
-                      React.createElement("div", { key: i.id, className: "flex gap-3 rounded-2xl border p-3" },
-                        React.createElement("div", { className: `grid h-20 w-16 shrink-0 place-items-center rounded-xl text-center text-[10px] font-black leading-tight text-white ${i.coverClass}` }, i.cover),
-                        React.createElement("div", { className: "min-w-0 flex-1" },
-                          React.createElement("p", { className: "font-bold leading-tight" }, i.name),
-                          React.createElement("p", { className: "mt-1 text-sm text-[#6B675A]" }, money(i.price)),
-                          React.createElement("div", { className: "mt-2 flex items-center gap-2" },
-                            React.createElement("button", { onClick: () => changeQty(i.id, -1), className: "rounded-full border p-1" }, React.createElement(Minus, { size: 14 })),
-                            React.createElement("b", null, i.qty),
-                            React.createElement("button", { onClick: () => changeQty(i.id, 1), className: "rounded-full border p-1" }, React.createElement(Plus, { size: 14 })),
-                            React.createElement("button", { onClick: () => changeQty(i.id, -i.qty), className: "ml-auto flex gap-1 text-xs font-bold text-red-700" }, React.createElement(Trash2, { size: 15 }), " Remover")
-                          )
-                        )
-                      )
-                    )
-                  )
-              ),
-              cartItems.length > 0 && React.createElement("div", { className: "border-t p-5" },
-                React.createElement("div", { className: "flex justify-between text-sm" },
-                  React.createElement("span", null, "Subtotal"),
-                  React.createElement("b", null, money(total))
-                ),
-                checkoutDone ?
-                  React.createElement("div", { className: "mt-4 rounded-2xl bg-emerald-50 p-4" },
-                    React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Pedido registrado!"),
-                    React.createElement("a", { href: waLink(checkoutMsg), target: "_blank", rel: "noopener", className: "mt-3 flex justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-black text-[#06281A]" }, React.createElement(MessageCircle), " Finalizar no WhatsApp")
-                  ) :
-                  React.createElement("div", { className: "mt-4 grid gap-3" },
-                    field("Nome", checkout.nome, v => setCheckout({...checkout, nome: v}), "nome", "Nome completo"),
-                    field("WhatsApp", checkout.whatsapp, v => setCheckout({...checkout, whatsapp: v}), "whatsapp", "(98) 99999-0000"),
-                    field("E-mail", checkout.email, v => setCheckout({...checkout, email: v}), "email", "voce@email.com", "email"),
-                    React.createElement("button", { disabled: busy, onClick: submitCheckout, className: "rounded-full bg-[#1A1E2E] py-3.5 font-bold text-white disabled:opacity-60" }, busy ? "Registrando..." : "Registrar pedido"),
-                    React.createElement("a", { href: waLink(checkoutMsg), target: "_blank", rel: "noopener", className: "flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3.5 font-black text-[#06281A]" }, React.createElement(MessageCircle), " Finalizar no WhatsApp")
-                  )
-              )
-            )
-          ),
-
-          // BUDGET
-          showBudget && React.createElement("div", { className: "fixed inset-0 z-50 grid place-items-center bg-black/60 p-4" },
-            React.createElement("div", { className: "max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl" },
-              React.createElement("div", { className: "flex items-start justify-between" },
-                React.createElement("h3", { className: "font-serif-display mt-1 text-3xl font-bold" }, "Orçamento"),
-                React.createElement("button", { onClick: () => setShowBudget(false), className: "rounded-full bg-[#F5F1E6] p-2" }, React.createElement(X))
-              ),
-              budgetDone ?
-                React.createElement("div", { className: "mt-5 rounded-2xl bg-emerald-50 p-5" },
-                  React.createElement("p", { className: "flex gap-2 font-bold text-emerald-800" }, React.createElement(Check), " Registrado!"),
-                  React.createElement("a", { href: waLink(budgetMsg), target: "_blank", rel: "noopener", className: "mt-4 flex justify-center gap-2 rounded-full bg-[#25D366] py-3 font-black text-[#06281A]" }, React.createElement(MessageCircle), " Enviar pelo WhatsApp"),
-                  React.createElement("button", { onClick: () => { setBudgetDone(false); setShowBudget(false); }, className: "mt-3 w-full text-sm font-bold underline" }, "Fechar")
-                ) :
-                React.createElement("div", { className: "mt-5 grid gap-4" },
-                  field("Instituição", budget.instituicao, v => setBudget({...budget, instituicao: v}), "instituicao", "Escola"),
-                  field("Cidade", budget.cidade, v => setBudget({...budget, cidade: v}), "cidade", "Sua cidade"),
-                  React.createElement("div", { className: "grid grid-cols-2 gap-4" },
-                    field("Data", budget.data, v => setBudget({...budget, data: v}), "data", "dd/mm/aaaa"),
-                    field("Alunos", budget.alunos, v => setBudget({...budget, alunos: v}), "alunos", "120")
-                  ),
-                  React.createElement("button", { disabled: busy, onClick: submitBudget, className: "rounded-full bg-[#C9A227] py-3.5 font-bold disabled:opacity-60" }, busy ? "Salvando..." : "Solicitar orçamento")
-                )
-            )
-          )
-        )
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+    const menuToggle = document.getElementById('menuToggle');
+    const navlinks = document.getElementById('navlinks');
+    menuToggle.addEventListener('click', () => {
+      const opened = navlinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(opened));
+      menuToggle.textContent = opened ? 'Fechar' : 'Menu';
+    });
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = 'Menu';
+    }));
+    document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', () => {
+      const select = document.getElementById('tipo');
+      if (select) select.value = link.dataset.service;
+    }));
+    document.getElementById('projectForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const msg = [
+        'Olá, Erigutemberg! Gostaria de conversar sobre um projeto para a Casa do Escritor.',
+        '',
+        'Nome: ' + form.get('nome'),
+        'E-mail: ' + form.get('email'),
+        'WhatsApp: ' + (form.get('whatsapp') || 'Não informado'),
+        'Serviço: ' + form.get('tipo'),
+        '',
+        'Projeto: ' + form.get('ideia')
+      ].join('\n');
+      document.getElementById('formStatus').textContent = 'Abrindo o WhatsApp para você revisar e enviar a mensagem…';
+      window.open('https://wa.me/5547988911436?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
