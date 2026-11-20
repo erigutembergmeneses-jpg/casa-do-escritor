@@ -296,6 +296,13 @@
       const [budgetDone, setBudgetDone] = useState(false);
       const [scheduleDone, setScheduleDone] = useState(false);
       const [contactDone, setContactDone] = useState(false);
+      const [sonnetLines, setSonnetLines] = useState(() => {
+  const empty = Array(14).fill("");
+  empty[0] = "Oh! flor do céu! oh! flor cândida e pura!";
+  empty[13] = "Perde-se a vida, ganha-se a batalha!";
+  return empty;
+});
+const [showSonnetPreview, setShowSonnetPreview] = useState(false);
       const audioRef = useRef(null);
 
       const cartItems = useMemo(() => PRODUCTS.filter(p => cart[p.id]).map(p => ({...p, qty: cart[p.id]})), [cart]);
