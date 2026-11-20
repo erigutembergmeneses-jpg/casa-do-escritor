@@ -560,9 +560,14 @@
                       React.createElement("h3", { className: "font-serif-display mt-1 text-xl font-bold" }, p.name),
                       React.createElement("p", { className: "mt-2 text-sm text-[#6B675A]" }, p.desc),
                       React.createElement("div", { className: "mt-4 flex items-center justify-between" },
-                        React.createElement("b", { className: "font-serif-display text-2xl" }, money(p.price)),
-                        React.createElement("button", { onClick: () => add(p.id), className: "flex items-center gap-2 rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" }, "Adicionar ", React.createElement(Plus, { size: 16 }))
-                      )
+  React.createElement("b", { className: "font-serif-display text-2xl" }, money(p.price)),
+  React.createElement("a", { 
+    href: p.link, 
+    target: "_blank", 
+    rel: "noopener", 
+    className: "flex items-center gap-2 rounded-full bg-[#1A1E2E] px-4 py-2.5 text-sm font-bold text-white" 
+  }, "Comprar ", React.createElement(ArrowRight, { size: 16 }))
+)
                     )
                   )
                 )
